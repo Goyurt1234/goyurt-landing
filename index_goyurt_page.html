@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goyurt Landing Page</title>
+  <title>Goyurt</title>
   <style>
     * {
       margin: 0;
@@ -13,134 +13,123 @@
     html, body {
       height: 100%;
       font-family: 'Arial', sans-serif;
-      background-color: #ffffff;
-      overflow-x: hidden;
+      background-color: white;
     }
-    .section {
-      width: 100%;
-      min-height: 100vh;
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 10% 25% 15% 35% 15%;
+      grid-template-columns: 100%;
+    }
+    .top-white {
+      background-color: white;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      padding-left: 2vw;
     }
-    .bg-white {
-      background-color: #ffffff;
+    .top-white img {
+      height: 60%;
     }
-    .bg-light {
-      background-color: #BFD9D6;
-    }
-    .bg-dark {
+    .banner {
       background-color: #8FC9C7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0 5vw;
     }
-    header img {
-      max-height: 40px;
-      margin: 20px;
+    .banner img {
+      max-height: 70%;
     }
-    h1 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-    .highlight {
-      font-size: 2.2rem;
-      color: #ffffff;
-      margin-top: 1rem;
-    }
-    .button-container {
-      margin: 2rem 0;
-    }
-    .button-container a {
-      display: inline-block;
-      background-color: #67d0db;
+    .banner h1 {
       color: white;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      font-size: 2.2vw;
+      margin-top: 1vh;
     }
-    .button-container a:hover {
-      background-color: #55b8c2;
+    .middle-white {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 5vw;
     }
-    .text-section {
-      margin: 1rem auto;
-      max-width: 600px;
+    .middle-white img {
+      height: 60%;
+    }
+    .middle-white .text {
       color: #67d0db;
       font-weight: bold;
-      font-size: 1.1rem;
-      text-align: center;
+      font-size: 1vw;
+      max-width: 40vw;
     }
-    .subtext {
+    .middle-white .text span {
       color: #666;
       font-weight: normal;
-      margin-top: 0.5rem;
-      font-size: 1rem;
+      display: block;
+      margin-top: 0.5vh;
+      font-size: 0.9vw;
     }
-    .media-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem auto;
-      max-width: 900px;
-    }
-    .media-grid img {
-      width: 280px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    footer {
-      padding: 1rem;
+    .gallery {
+      background-color: #BFD9D6;
       display: flex;
       justify-content: center;
-      gap: 1rem;
       align-items: center;
+      gap: 2vw;
     }
-    footer img.icon {
-      height: 24px;
+    .gallery img {
+      height: 80%;
+      border-radius: 1vw;
+    }
+    .footer {
+      background-color: #8FC9C7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2vw;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1vw;
+    }
+    .social-icons img {
+      height: 2.5vh;
+    }
+    .mascota {
+      height: 70%;
     }
   </style>
 </head>
 <body>
-  <div class="section bg-white">
-    <header>
-      <img src="Logo Nuevo Goyurt (1) (1).png" alt="Goyurt logo">
-    </header>
-  </div>
-
-  <div class="section bg-dark">
-    <img src="63f5f7d8-fe2a-4c81-ba7f-e0513f378ae4.png" alt="Helado" style="width: 280px; border-radius: 10px;">
-    <div class="highlight">Saludable y delicioso</div>
-  </div>
-
-  <div class="section bg-light">
-    <div class="button-container">
-      <a href="https://tu-reporte-powerbi.com" target="_blank">CLICK</a>
+  <div class="container">
+    <div class="top-white">
+      <img src="Logo%20Nuevo%20Goyurt%20(1)%20(1).png" alt="Logo Goyurt">
     </div>
-    <div class="text-section">
-      Explora una experiencia pensada para ti, con todo lo que necesitas según tu perfil.
-      <div class="subtext">informes, datos y contexto, alineados contigo.</div>
+    <div class="banner">
+      <img src="63f5f7d8-fe2a-4c81-ba7f-e0513f378ae4.png" alt="Helado Goyurt">
+      <h1>Saludable y delicioso</h1>
     </div>
-  </div>
-
-  <div class="section bg-white">
-    <div class="media-grid">
-      <img src="shortyougoy.gif" alt="GIF animado Goyurt">
-      <img src="3a6a1faa-a9d5-4f01-b3de-e82ff237453f.png" alt="Grupo disfrutando Goyurt">
-      <img src="63f5f7d8-fe2a-4c81-ba7f-e0513f378ae4.png" alt="Producto Goyurt">
+    <div class="middle-white">
+      <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt="Boton click">
+      <div class="text">
+        Explora una experiencia pensada para ti, con todo lo que necesitas según tu perfil.
+        <span>informes, datos y contexto, alineados contigo.</span>
+      </div>
     </div>
-  </div>
-
-  <div class="section bg-dark">
-    <footer>
-      <img src="facebook.svg" alt="Facebook" class="icon">
-      <img src="instagram.svg" alt="Instagram" class="icon">
-      <img src="linkedin.svg" alt="LinkedIn" class="icon">
-      <img src="whatsapp.svg" alt="WhatsApp" class="icon">
-      <img src="Captura de pantalla 2025-07-31 170450.png" alt="Mascota Goyurt" class="icon">
-    </footer>
+    <div class="gallery">
+      <img src="3a6a1faa-a9d5-4f01-b3de-e82ff237453f.png" alt="Foto 1">
+      <img src="feab3b09-88e5-4d9a-97ad-7d625ca071eb.png" alt="Foto 2">
+      <img src="5dbbd264-9ddf-42c4-bbb4-57b03e78f292.png" alt="Foto 3">
+    </div>
+    <div class="footer">
+      <div class="social-icons">
+        <img src="facebook.svg" alt="Facebook">
+        <img src="instagram.svg" alt="Instagram">
+        <img src="linkedin.svg" alt="LinkedIn">
+        <img src="whatsapp.svg" alt="WhatsApp">
+      </div>
+      <img src="Captura%20de%20pantalla%202025-07-31%20170450.png" class="mascota" alt="Mascota">
+    </div>
   </div>
 </body>
 </html>
