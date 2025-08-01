@@ -3,221 +3,287 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Goyurt</title>
+  <title>Goyurt | Informes</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
+    /* ------------------- */
+    /* VARIABLES Y GLOBALES */
+    /* ------------------- */
+    :root {
+      /* Paleta de Colores */
+      --color-principal: #8FC9C7;
+      --color-principal-hover: #7abebc;
+      --color-secundario: #BFD9D6;
+      --color-texto: #333;
+      --color-blanco: #ffffff;
+
+      /* Tipografía */
+      --fuente-principal: 'Poppins', 'Arial', sans-serif;
+
+      /* Espaciados */
+      --espacio-sm: 0.5rem; /* 8px */
+      --espacio-md: 1rem;   /* 16px */
+      --espacio-lg: 2rem;   /* 32px */
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      font-family: 'Arial', sans-serif;
-      background-color: white;
-      overflow: hidden; /* No scroll */
+    html {
+      font-size: 16px; /* Base para unidades rem */
     }
 
-    .container {
-      width: 100vw;
-      height: 100vh;
-      display: grid;
-      grid-template-rows: 4% 26.2% 5.8% 54.56% 9.44%;
-      grid-template-columns: 100%;
-    }
-
-    .top-white {
-      background-color: white;
+    body {
       display: flex;
-      align-items: center;
-      padding-left: 2vw;
+      flex-direction: column;
+      min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la pantalla */
+      font-family: var(--fuente-principal);
+      background-color: var(--color-blanco);
+      color: var(--color-texto);
     }
 
-    .top-white img {
-      height: 60%;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block; /* Elimina espacio extra debajo de las imágenes */
     }
 
-    .banner {
-      background-color: #8FC9C7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 2vw;
+    /* ------------------- */
+    /* ESTRUCTURA PRINCIPAL */
+    /* ------------------- */
+    .app-header {
+      padding: var(--espacio-sm) var(--espacio-lg);
+      background-color: var(--color-blanco);
     }
-
-    .banner img {
-      max-height: 70%;
-    }
-
-    .middle-white {
-      background-color: #BFD9D6;
-    }
-
-    .gallery {
-      background-color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1vh 2vw;
-    }
-
-    .gif-container {
-      width: 40%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .gif-container img {
-      aspect-ratio: 9 / 16;
-      height: 90%;
+    .app-header .logo {
+      height: 2.5rem; /* Altura fija y predecible para el logo */
       width: auto;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 1vw;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
-    .text-container {
-      width: 60%;
-      height: 100%;
+    .app-main {
+      flex-grow: 1; /* El contenido principal crece para ocupar el espacio disponible */
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .app-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--espacio-sm) var(--espacio-lg);
+      background-color: var(--color-principal);
+    }
+    .footer-socials {
+      display: flex;
+      gap: var(--espacio-md);
+    }
+    .footer-socials .icon {
+      height: 1.5rem;
+    }
+    .footer-mascot {
+      height: 3.5rem;
+    }
+
+    /* ------------------- */
+    /* COMPONENTES */
+    /* ------------------- */
+    .section-banner {
+      background-color: var(--color-principal);
+      padding: var(--espacio-md);
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
-    .card-informes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(4, 1fr);
-      gap: 1.5vh 2vw;
-      width: 100%;
-      height: 90%;
-      padding: 2vh 1vw;
+    .section-banner img {
+      max-height: 15vh; /* Altura máxima relativa al alto de la pantalla */
+      width: auto;
+    }
+    
+    .section-separator {
+      height: 2rem; /* Separador con altura fija */
+      background-color: var(--color-secundario);
     }
 
-    .info-block {
+    .section-content {
+      flex-grow: 1; /* Esta sección se estira para llenar el espacio vertical */
+      display: flex;
+      flex-direction: column; /* MOBILE-FIRST: Por defecto, los elementos están en columna */
+      align-items: center;
+      gap: var(--espacio-lg);
+      padding: var(--espacio-lg);
+      background-color: var(--color-blanco);
+    }
+
+    .content-media {
+      width: 100%;
+      max-width: 300px; /* Ancho máximo para el GIF en móviles */
+    }
+    .content-media img {
+      aspect-ratio: 9 / 16;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .content-actions {
+      width: 100%;
+    }
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Siempre 2 columnas */
+      gap: var(--espacio-md);
+    }
+    
+    .report-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      gap: var(--espacio-sm);
     }
-
-    .info-block h2 {
-      font-size: clamp(0.9rem, 1.8vw, 1.4rem);
-      color: #8FC9C7;
-      font-weight: bold;
-      margin-bottom: 1vh;
+    .report-item h2 {
+      /* Tipografía adaptable: se ajusta al ancho pero con límites */
+      font-size: clamp(0.85rem, 3vw, 1.1rem);
+      color: var(--color-principal);
+      font-weight: 700;
     }
-
-    .info-block button {
-      background-color: #8FC9C7;
-      color: white;
-      font-weight: bold;
+    .report-item .btn {
+      background-color: var(--color-principal);
+      color: var(--color-blanco);
+      font-weight: 700;
       border: none;
-      border-radius: 999px;
-      padding: 0.6vh 1.5vw;
-      font-size: clamp(0.7rem, 1.4vw, 1.1rem);
+      border-radius: 999px; /* Píldora */
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      padding: 0.6em 1.5em; /* Padding basado en el font-size del botón */
       cursor: pointer;
-      transition: background-color 0.3s;
-      min-width: 10vw;
+      transition: background-color 0.2s ease-in-out;
+      width: 100%; /* El botón ocupa todo el ancho de su celda */
+      max-width: 180px; /* Pero no se hace exageradamente grande */
+    }
+    .report-item .btn:hover {
+      background-color: var(--color-principal-hover);
+    }
+    
+    /* ------------------- */
+    /* MEDIA QUERY: TABLET Y SUPERIOR */
+    /* ------------------- */
+    @media (min-width: 768px) {
+      .section-content {
+        flex-direction: row; /* En pantallas grandes, los elementos van uno al lado del otro */
+        justify-content: center;
+        align-items: stretch; /* Se estiran para tener la misma altura */
+      }
+      
+      .content-media {
+        flex: 2; /* Ocupa 2 partes del espacio */
+        max-width: none; /* Quitamos el max-width de móvil */
+        display: flex;
+        justify-content: flex-end; /* Alinea el GIF a la derecha de su contenedor */
+        align-items: center;
+      }
+      .content-media img {
+        height: 100%;
+        max-height: 70vh; /* Limita la altura del GIF en pantallas muy altas */
+        width: auto;
+      }
+
+      .content-actions {
+        flex: 3; /* Ocupa 3 partes del espacio */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Alinea la tarjeta a la izquierda de su contenedor */
+      }
+      .reports-grid {
+         /* Aumentamos el gap en pantallas grandes */
+        gap: var(--espacio-lg) var(--espacio-md);
+      }
     }
 
-    .info-block button:hover {
-      background-color: #67d0db;
-    }
-
-    .footer {
-      background-color: #8FC9C7;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1.5vw;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 1vw;
-    }
-
-    .social-icons img {
-      height: 2vh;
-    }
-
-    .mascota {
-      height: 60%;
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="top-white">
-      <img src="Logo%20Nuevo%20Goyurt%20(1)%20(1).png" alt=" " />
-    </div>
 
-    <div class="banner">
-      <img src="63f5f7d8-fe2a-4c81-ba7f-e0513f378ae4.png" alt=" " />
-    </div>
+  <header class="app-header">
+    <img src="https://i.imgur.com/g8e1TVE.png" alt="Logo de Goyurt" class="logo" width="150" height="40">
+  </header>
 
-    <div class="middle-white"></div>
+  <main class="app-main">
+    
+    <section class="section-banner">
+      <img src="https://i.imgur.com/7w3k4Wd.png" alt="Banner promocional Goyurt" width="900" height="150">
+    </section>
 
-    <div class="gallery">
-      <div class="gif-container">
-        <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt=" "/>
+    <div class="section-separator"></div>
+
+    <section class="section-content">
+      
+      <div class="content-media">
+        <img 
+          src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" 
+          alt="Video demostrativo de producto Goyurt" 
+          loading="lazy">
       </div>
-
-      <div class="text-container">
-        <div class="card-informes">
-          <div class="info-block">
+      
+      <div class="content-actions">
+        <div class="reports-grid">
+          <div class="report-item">
             <h2>Ventas diarias</h2>
-            <button>COLOMBIA</button>
+            <button class="btn">COLOMBIA</button>
           </div>
-          <div class="info-block">
+          <div class="report-item">
             <h2>Ventas diarias</h2>
-            <button>RD</button>
+            <button class="btn">RD</button>
           </div>
-
-          <div class="info-block">
+          <div class="report-item">
             <h2>Ventas acumuladas</h2>
-            <button>COLOMBIA</button>
+            <button class="btn">COLOMBIA</button>
           </div>
-          <div class="info-block">
+          <div class="report-item">
             <h2>Ventas acumuladas</h2>
-            <button>RD</button>
+            <button class="btn">RD</button>
           </div>
-
-          <div class="info-block">
+          <div class="report-item">
             <h2>Informes contables</h2>
-            <button>COLOMBIA</button>
+            <button class="btn">COLOMBIA</button>
           </div>
-          <div class="info-block">
+          <div class="report-item">
             <h2>Dash domicilios</h2>
-            <button>COLOMBIA</button>
+            <button class="btn">COLOMBIA</button>
           </div>
-
-          <div class="info-block">
+          <div class="report-item">
             <h2>Revenue</h2>
-            <button>COLOMBIA</button>
+            <button class="btn">COLOMBIA</button>
           </div>
-          <div class="info-block">
+          <div class="report-item">
             <h2>Cuentas por cobrar</h2>
-            <button>COLOMBIA</button>
+            <button class="btn">COLOMBIA</button>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="footer">
-      <div class="social-icons">
-        <img src="facebook.svg" alt=" " />
-        <img src="instagram.svg" alt=" " />
-        <img src="linkedin.svg" alt=" " />
-        <img src="whatsapp.svg" alt=" " />
-      </div>
-      <img src="Captura%20de%20pantalla%202025-07-31%20170450.png" class="mascota" alt=" "/>
+    </section>
+
+  </main>
+  
+  <footer class="app-footer">
+    <div class="footer-socials">
+      <img src="https://www.svgrepo.com/show/521654/facebook.svg" alt="Facebook" class="icon">
+      <img src="https://www.svgrepo.com/show/521843/instagram.svg" alt="Instagram" class="icon">
+      <img src="https://www.svgrepo.com/show/521743/linkedin.svg" alt="LinkedIn" class="icon">
+      <img src="https://www.svgrepo.com/show/521712/whatsapp.svg" alt="WhatsApp" class="icon">
     </div>
-  </div>
+    <img src="https://i.imgur.com/r6t5s0F.png" alt="Mascota de Goyurt" class="footer-mascot" width="100" height="56">
+  </footer>
+
 </body>
 </html>
