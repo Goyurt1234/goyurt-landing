@@ -3,31 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Goyurt | Informes</title>
-  
+  <title>Goyurt | Dashboard de Informes</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* ------------------- */
-    /* VARIABLES Y GLOBALES */
-    /* ------------------- */
     :root {
-      /* Paleta de Colores */
       --color-principal: #8FC9C7;
       --color-principal-hover: #7abebc;
-      --color-secundario: #BFD9D6;
-      --color-texto: #333;
+      --color-fondo: #F0F5F5;
+      --color-texto-titulos: #008D85;
       --color-blanco: #ffffff;
-
-      /* Tipografía */
-      --fuente-principal: 'Poppins', 'Arial', sans-serif;
-
-      /* Espaciados */
-      --espacio-sm: 0.5rem; /* 8px */
-      --espacio-md: 1rem;   /* 16px */
-      --espacio-lg: 2rem;   /* 32px */
+      --espacio-md: 1rem;
+      --espacio-lg: 1.5rem;
     }
 
     * {
@@ -36,254 +26,191 @@
       box-sizing: border-box;
     }
 
-    html {
-      font-size: 16px; /* Base para unidades rem */
-    }
-
     body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-fondo);
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la pantalla */
-      font-family: var(--fuente-principal);
-      background-color: var(--color-blanco);
-      color: var(--color-texto);
+      min-height: 100vh;
     }
 
-    img {
-      max-width: 100%;
+    .top-banner {
+      width: 100%;
+      background-color: var(--color-blanco);
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    .top-banner img {
+      width: 100%;
+      max-width: 400px;
       height: auto;
-      display: block; /* Elimina espacio extra debajo de las imágenes */
+      border-radius: 10px;
     }
 
-    /* ------------------- */
-    /* ESTRUCTURA PRINCIPAL */
-    /* ------------------- */
-    .app-header {
-      padding: var(--espacio-sm) var(--espacio-lg);
-      background-color: var(--color-blanco);
+    .click-area {
+      margin-top: 1rem;
     }
-    .app-header .logo {
-      height: 2.5rem; /* Altura fija y predecible para el logo */
-      width: auto;
+
+    .click-area img {
+      width: 90px;
+      margin-bottom: 0.5rem;
+    }
+
+    .click-area p {
+      font-size: 0.85rem;
+      color: #008D85;
+      font-weight: 600;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .click-area small {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.65rem;
+      color: #444;
     }
 
     .app-main {
-      flex-grow: 1; /* El contenido principal crece para ocupar el espacio disponible */
       display: flex;
-      flex-direction: column;
-      width: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 2vw;
+      padding: 2vh 5vw;
+      flex-wrap: wrap;
+    }
+
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 1.2rem 2rem;
+    }
+
+    .info-item {
+      text-align: center;
+    }
+
+    .info-item h2 {
+      font-size: 1rem;
+      color: var(--color-texto-titulos);
+      margin-bottom: 0.3rem;
+    }
+
+    .info-item .btn {
+      background-color: var(--color-principal);
+      color: white;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .info-item .btn:hover {
+      background-color: var(--color-principal-hover);
+    }
+
+    .video-container {
+      width: 180px;
+      height: 320px;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .video-container img {
+      width: 50%;
+      height: 50%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .app-main {
+        flex-direction: column;
+      }
+      .video-container {
+        width: 160px;
+        height: 280px;
+      }
     }
 
     .app-footer {
+      background-color: var(--color-principal);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: var(--espacio-sm) var(--espacio-lg);
-      background-color: var(--color-principal);
-    }
-    .footer-socials {
-      display: flex;
-      gap: var(--espacio-md);
-    }
-    .footer-socials .icon {
-      height: 1.5rem;
-    }
-    .footer-mascot {
-      height: 3.5rem;
+      padding: 0.5rem var(--espacio-lg);
+      flex-wrap: wrap;
     }
 
-    /* ------------------- */
-    /* COMPONENTES */
-    /* ------------------- */
-    .section-banner {
-      background-color: var(--color-principal);
-      padding: var(--espacio-md);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .section-banner img {
-      max-height: 15vh; /* Altura máxima relativa al alto de la pantalla */
-      width: auto;
-    }
-    
-    .section-separator {
-      height: 2rem; /* Separador con altura fija */
-      background-color: var(--color-secundario);
-    }
-
-    .section-content {
-      flex-grow: 1; /* Esta sección se estira para llenar el espacio vertical */
-      display: flex;
-      flex-direction: column; /* MOBILE-FIRST: Por defecto, los elementos están en columna */
-      align-items: center;
-      gap: var(--espacio-lg);
-      padding: var(--espacio-lg);
-      background-color: var(--color-blanco);
-    }
-
-    .content-media {
-      width: 100%;
-      max-width: 300px; /* Ancho máximo para el GIF en móviles */
-    }
-    .content-media img {
-      aspect-ratio: 9 / 16;
-      width: 100%;
-      object-fit: cover;
-      border-radius: 1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .content-actions {
-      width: 100%;
-    }
-    .reports-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Siempre 2 columnas */
-      gap: var(--espacio-md);
-    }
-    
-    .report-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: var(--espacio-sm);
-    }
-    .report-item h2 {
-      /* Tipografía adaptable: se ajusta al ancho pero con límites */
-      font-size: clamp(0.85rem, 3vw, 1.1rem);
-      color: var(--color-principal);
-      font-weight: 700;
-    }
-    .report-item .btn {
-      background-color: var(--color-principal);
-      color: var(--color-blanco);
-      font-weight: 700;
-      border: none;
-      border-radius: 999px; /* Píldora */
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
-      padding: 0.6em 1.5em; /* Padding basado en el font-size del botón */
-      cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
-      width: 100%; /* El botón ocupa todo el ancho de su celda */
-      max-width: 180px; /* Pero no se hace exageradamente grande */
-    }
-    .report-item .btn:hover {
-      background-color: var(--color-principal-hover);
-    }
-    
-    /* ------------------- */
-    /* MEDIA QUERY: TABLET Y SUPERIOR */
-    /* ------------------- */
-    @media (min-width: 768px) {
-      .section-content {
-        flex-direction: row; /* En pantallas grandes, los elementos van uno al lado del otro */
-        justify-content: center;
-        align-items: stretch; /* Se estiran para tener la misma altura */
-      }
-      
-      .content-media {
-        flex: 2; /* Ocupa 2 partes del espacio */
-        max-width: none; /* Quitamos el max-width de móvil */
-        display: flex;
-        justify-content: flex-end; /* Alinea el GIF a la derecha de su contenedor */
-        align-items: center;
-      }
-      .content-media img {
-        height: 100%;
-        max-height: 70vh; /* Limita la altura del GIF en pantallas muy altas */
-        width: auto;
-      }
-
-      .content-actions {
-        flex: 3; /* Ocupa 3 partes del espacio */
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* Alinea la tarjeta a la izquierda de su contenedor */
-      }
-      .reports-grid {
-         /* Aumentamos el gap en pantallas grandes */
-        gap: var(--espacio-lg) var(--espacio-md);
-      }
-    }
-
+    .footer-logo { height: 1.8rem; }
+    .footer-socials { display: flex; gap: var(--espacio-md); }
+    .footer-socials .icon { height: 1.2rem; }
+    .footer-mascot { height: 3rem; }
   </style>
 </head>
 <body>
-
-  <header class="app-header">
-    <img src="https://i.imgur.com/g8e1TVE.png" alt="Logo de Goyurt" class="logo" width="150" height="40">
-  </header>
+  <section class="top-banner">
+    <img src="https://i.imgur.com/pE3e4mB.png" alt="Banner Goyurt">
+    <div class="click-area">
+      <img src="https://i.imgur.com/GsAMf6H.png" alt="Click">
+      <p>Explora una experiencia pensada para ti, con todo lo que necesitas según tu perfil.</p>
+      <small>Informes, datos y contexto, alineados contigo.</small>
+    </div>
+  </section>
 
   <main class="app-main">
-    
-    <section class="section-banner">
-      <img src="https://i.imgur.com/7w3k4Wd.png" alt="Banner promocional Goyurt" width="900" height="150">
-    </section>
-
-    <div class="section-separator"></div>
-
-    <section class="section-content">
-      
-      <div class="content-media">
-        <img 
-          src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" 
-          alt="Video demostrativo de producto Goyurt" 
-          loading="lazy">
+    <div class="reports-grid">
+      <div class="info-item">
+        <h2>Ventas diarias</h2>
+        <button class="btn">COLOMBIA</button>
       </div>
-      
-      <div class="content-actions">
-        <div class="reports-grid">
-          <div class="report-item">
-            <h2>Ventas diarias</h2>
-            <button class="btn">COLOMBIA</button>
-          </div>
-          <div class="report-item">
-            <h2>Ventas diarias</h2>
-            <button class="btn">RD</button>
-          </div>
-          <div class="report-item">
-            <h2>Ventas acumuladas</h2>
-            <button class="btn">COLOMBIA</button>
-          </div>
-          <div class="report-item">
-            <h2>Ventas acumuladas</h2>
-            <button class="btn">RD</button>
-          </div>
-          <div class="report-item">
-            <h2>Informes contables</h2>
-            <button class="btn">COLOMBIA</button>
-          </div>
-          <div class="report-item">
-            <h2>Dash domicilios</h2>
-            <button class="btn">COLOMBIA</button>
-          </div>
-          <div class="report-item">
-            <h2>Revenue</h2>
-            <button class="btn">COLOMBIA</button>
-          </div>
-          <div class="report-item">
-            <h2>Cuentas por cobrar</h2>
-            <button class="btn">COLOMBIA</button>
-          </div>
-        </div>
+      <div class="info-item">
+        <h2>Ventas diarias</h2>
+        <button class="btn">RD</button>
       </div>
+      <div class="info-item">
+        <h2>Ventas acumuladas</h2>
+        <button class="btn">COLOMBIA</button>
+      </div>
+      <div class="info-item">
+        <h2>Ventas acumuladas</h2>
+        <button class="btn">RD</button>
+      </div>
+      <div class="info-item">
+        <h2>Informes contables</h2>
+        <button class="btn">COLOMBIA</button>
+      </div>
+      <div class="info-item">
+        <h2>Dash domicilios</h2>
+        <button class="btn">COLOMBIA</button>
+      </div>
+      <div class="info-item">
+        <h2>Revenue</h2>
+        <button class="btn">COLOMBIA</button>
+      </div>
+      <div class="info-item">
+        <h2>Cuentas por cobrar</h2>
+        <button class="btn">COLOMBIA</button>
+      </div>
+    </div>
 
-    </section>
-
+    <div class="video-container">
+      <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt="Video demostrativo de producto Goyurt">
+    </div>
   </main>
-  
+
   <footer class="app-footer">
+    <img src="https://i.imgur.com/g8e1TVE.png" alt="Logo de Goyurt" class="footer-logo">
     <div class="footer-socials">
       <img src="https://www.svgrepo.com/show/521654/facebook.svg" alt="Facebook" class="icon">
       <img src="https://www.svgrepo.com/show/521843/instagram.svg" alt="Instagram" class="icon">
       <img src="https://www.svgrepo.com/show/521743/linkedin.svg" alt="LinkedIn" class="icon">
       <img src="https://www.svgrepo.com/show/521712/whatsapp.svg" alt="WhatsApp" class="icon">
     </div>
-    <img src="https://i.imgur.com/r6t5s0F.png" alt="Mascota de Goyurt" class="footer-mascot" width="100" height="56">
+    <img src="https://i.imgur.com/r6t5s0F.png" alt="Mascota de Goyurt" class="footer-mascot">
   </footer>
-
 </body>
 </html>
+
