@@ -13,9 +13,10 @@
 
     html, body {
       height: 100%;
+      width: 100%;
       font-family: 'Arial', sans-serif;
       background-color: white;
-      overflow: hidden;
+      overflow: hidden; /* No scroll */
     }
 
     .container {
@@ -64,7 +65,6 @@
     .gif-container {
       width: 40%;
       height: 100%;
-      margin: 0 2vw;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -82,18 +82,20 @@
 
     .text-container {
       width: 60%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     .card-informes {
-      width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(4, auto);
-      gap: 2vh 2vw;
-      padding: 2vh;
+      grid-template-rows: repeat(4, 1fr);
+      gap: 1.5vh 2vw;
+      width: 100%;
+      height: 90%;
+      padding: 2vh 1vw;
     }
 
     .info-block {
@@ -101,17 +103,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: rgba(255,255,255,0.8);
-      padding: 1vh;
-      border-radius: 1vw;
-      border: 1px solid #cce5e3;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .info-block h2 {
-      font-size: 1.5vw;
-      font-weight: bold;
+      font-size: clamp(0.9rem, 1.8vw, 1.4rem);
       color: #8FC9C7;
+      font-weight: bold;
       margin-bottom: 1vh;
     }
 
@@ -121,8 +118,8 @@
       font-weight: bold;
       border: none;
       border-radius: 999px;
-      padding: 0.7vh 1.8vw;
-      font-size: 1.2vw;
+      padding: 0.6vh 1.5vw;
+      font-size: clamp(0.7rem, 1.4vw, 1.1rem);
       cursor: pointer;
       transition: background-color 0.3s;
       min-width: 10vw;
@@ -157,18 +154,18 @@
 <body>
   <div class="container">
     <div class="top-white">
-      <img src="Logo%20Nuevo%20Goyurt%20(1)%20(1).png" alt=" ">
+      <img src="Logo%20Nuevo%20Goyurt%20(1)%20(1).png" alt=" " />
     </div>
 
     <div class="banner">
-      <img src="63f5f7d8-fe2a-4c81-ba7f-e0513f378ae4.png" alt=" ">
+      <img src="63f5f7d8-fe2a-4c81-ba7f-e0513f378ae4.png" alt=" " />
     </div>
 
     <div class="middle-white"></div>
 
     <div class="gallery">
       <div class="gif-container">
-        <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt=" ">
+        <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt=" "/>
       </div>
 
       <div class="text-container">
@@ -181,6 +178,7 @@
             <h2>Ventas diarias</h2>
             <button>RD</button>
           </div>
+
           <div class="info-block">
             <h2>Ventas acumuladas</h2>
             <button>COLOMBIA</button>
@@ -189,6 +187,7 @@
             <h2>Ventas acumuladas</h2>
             <button>RD</button>
           </div>
+
           <div class="info-block">
             <h2>Informes contables</h2>
             <button>COLOMBIA</button>
@@ -197,6 +196,7 @@
             <h2>Dash domicilios</h2>
             <button>COLOMBIA</button>
           </div>
+
           <div class="info-block">
             <h2>Revenue</h2>
             <button>COLOMBIA</button>
@@ -211,15 +211,13 @@
 
     <div class="footer">
       <div class="social-icons">
-        <img src="facebook.svg" alt=" ">
-        <img src="instagram.svg" alt=" ">
-        <img src="linkedin.svg" alt=" ">
-        <img src="whatsapp.svg" alt=" ">
+        <img src="facebook.svg" alt=" " />
+        <img src="instagram.svg" alt=" " />
+        <img src="linkedin.svg" alt=" " />
+        <img src="whatsapp.svg" alt=" " />
       </div>
-      <img src="Captura%20de%20pantalla%202025-07-31%20170450.png" class="mascota" alt=" ">
+      <img src="Captura%20de%20pantalla%202025-07-31%20170450.png" class="mascota" alt=" "/>
     </div>
   </div>
 </body>
 </html>
-
-
