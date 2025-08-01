@@ -64,6 +64,7 @@
     .gif-container {
       width: 40%;
       height: 100%;
+      margin: 0 2vw;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -84,50 +85,50 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-left: 2vw;
     }
 
     .card-informes {
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 1px solid #cce5e3;
-      border-radius: 1.5vw;
-      padding: 2vh 2vw;
       width: 100%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      gap: 2vh 2vw;
+      padding: 2vh;
     }
 
-    .card-informes h2 {
-      color: #8FC9C7;
-      font-size: 1.2vw;
-      font-weight: bold;
-      margin-top: 2vh;
-      margin-bottom: 1vh;
-      text-align: center;
-    }
-
-    .boton-group {
+    .info-block {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 1vw;
-      flex-wrap: wrap;
-      margin-bottom: 2vh;
+      background-color: rgba(255,255,255,0.8);
+      padding: 1vh;
+      border-radius: 1vw;
+      border: 1px solid #cce5e3;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .boton-group button {
+    .info-block h2 {
+      font-size: 1.5vw;
+      font-weight: bold;
+      color: #8FC9C7;
+      margin-bottom: 1vh;
+    }
+
+    .info-block button {
       background-color: #8FC9C7;
       color: white;
       font-weight: bold;
       border: none;
       border-radius: 999px;
-      padding: 0.5vh 1.5vw;
-      font-size: 0.9vw;
+      padding: 0.7vh 1.8vw;
+      font-size: 1.2vw;
       cursor: pointer;
       transition: background-color 0.3s;
-      min-width: 8vw; /* MISMO ANCHO PARA TODOS */
-      text-align: center;
+      min-width: 10vw;
     }
 
-    .boton-group button:hover {
+    .info-block button:hover {
       background-color: #67d0db;
     }
 
@@ -151,21 +152,6 @@
     .mascota {
       height: 60%;
     }
-
-    @media (max-height: 700px) {
-      .card-informes h2,
-      .boton-group button {
-        font-size: 0.8vw;
-      }
-
-      .boton-group button {
-        padding: 0.4vh 1vw;
-      }
-
-      .gallery {
-        padding: 0.5vh 2vw;
-      }
-    }
   </style>
 </head>
 <body>
@@ -187,35 +173,36 @@
 
       <div class="text-container">
         <div class="card-informes">
-          <h2>Ventas diarias</h2>
-          <div class="boton-group">
+          <div class="info-block">
+            <h2>Ventas diarias</h2>
             <button>COLOMBIA</button>
+          </div>
+          <div class="info-block">
+            <h2>Ventas diarias</h2>
             <button>RD</button>
           </div>
-
-          <h2>Ventas acumuladas</h2>
-          <div class="boton-group">
+          <div class="info-block">
+            <h2>Ventas acumuladas</h2>
             <button>COLOMBIA</button>
+          </div>
+          <div class="info-block">
+            <h2>Ventas acumuladas</h2>
             <button>RD</button>
           </div>
-
-          <h2>Informes contables</h2>
-          <div class="boton-group">
+          <div class="info-block">
+            <h2>Informes contables</h2>
             <button>COLOMBIA</button>
           </div>
-
-          <h2>Dash domicilios</h2>
-          <div class="boton-group">
+          <div class="info-block">
+            <h2>Dash domicilios</h2>
             <button>COLOMBIA</button>
           </div>
-
-          <h2>Revenue</h2>
-          <div class="boton-group">
+          <div class="info-block">
+            <h2>Revenue</h2>
             <button>COLOMBIA</button>
           </div>
-
-          <h2>Cuentas por cobrar</h2>
-          <div class="boton-group">
+          <div class="info-block">
+            <h2>Cuentas por cobrar</h2>
             <button>COLOMBIA</button>
           </div>
         </div>
@@ -234,4 +221,5 @@
   </div>
 </body>
 </html>
+
 
