@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Goyurt</title>
   <style>
     * {
@@ -15,7 +15,7 @@
       height: 100%;
       font-family: 'Arial', sans-serif;
       background-color: white;
-      overflow: hidden; /* evita scroll */
+      overflow: hidden;
     }
 
     .container {
@@ -24,7 +24,6 @@
       display: grid;
       grid-template-rows: 4% 26.2% 5.8% 54.56% 9.44%;
       grid-template-columns: 100%;
-      overflow: hidden;
     }
 
     .top-white {
@@ -43,7 +42,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       padding: 0 2vw;
     }
 
@@ -60,68 +58,76 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2vw;
       padding: 1vh 2vw;
     }
 
     .gif-container {
-      flex: 1;
+      width: 40%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     .gif-container img {
-      max-width: 45%;
-      height: auto;
-      max-height: 45vh;
+      aspect-ratio: 9 / 16;
+      height: 90%;
+      width: auto;
+      max-height: 100%;
+      object-fit: contain;
       border-radius: 1vw;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
     .text-container {
-      flex: 1;
+      width: 60%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
+      padding-left: 2vw;
     }
 
-    .text-container p {
-      color: #67d0db;
-      font-weight: bold;
-      font-size: 0.9vw;
-      max-width: 28vw;
-    }
-
-    .text-container span {
-      color: #666;
-      font-weight: normal;
-      margin-top: 0.4vh;
-      font-size: 0.8vw;
-    }
-
-    .botones {
-      margin-top: 0.5vh;
+    .card-informes {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #cce5e3;
+      border-radius: 1.5vw;
+      padding: 2vh 2vw;
       width: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-informes h2 {
+      color: #8FC9C7;
+      font-size: 1.2vw;
+      font-weight: bold;
+      margin-top: 2vh;
+      margin-bottom: 1vh;
+      text-align: center;
+    }
+
+    .boton-group {
       display: flex;
-      flex-direction: column;
-      gap: 0.4vh;
+      justify-content: center;
+      gap: 1vw;
+      flex-wrap: wrap;
+      margin-bottom: 2vh;
     }
 
-    .botones button {
+    .boton-group button {
       background-color: #8FC9C7;
-      border: none;
-      padding: 0.5vh 1vw;
-      border-radius: 1vw;
       color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 999px;
+      padding: 0.5vh 1.5vw;
+      font-size: 0.9vw;
       cursor: pointer;
-      font-size: 0.8vw;
-      text-align: left;
       transition: background-color 0.3s;
+      min-width: 8vw; /* MISMO ANCHO PARA TODOS */
+      text-align: center;
     }
 
-    .botones button:hover {
+    .boton-group button:hover {
       background-color: #67d0db;
     }
 
@@ -147,18 +153,16 @@
     }
 
     @media (max-height: 700px) {
-      .text-container p,
-      .text-container span,
-      .botones button {
-        font-size: 0.7vw;
+      .card-informes h2,
+      .boton-group button {
+        font-size: 0.8vw;
       }
 
-      .botones button {
-        padding: 0.4vh 0.8vw;
+      .boton-group button {
+        padding: 0.4vh 1vw;
       }
 
       .gallery {
-        gap: 1.5vw;
         padding: 0.5vh 2vw;
       }
     }
@@ -182,19 +186,38 @@
       </div>
 
       <div class="text-container">
-        <p>Explora una experiencia pensada para ti, con todo lo que necesitas según tu perfil.</p>
-        <span>informes, datos y contexto, alineados contigo.</span>
+        <div class="card-informes">
+          <h2>Ventas diarias</h2>
+          <div class="boton-group">
+            <button>COLOMBIA</button>
+            <button>RD</button>
+          </div>
 
-        <div class="botones">
-          <button>Informe 1</button>
-          <button>Informe 2</button>
-          <button>Informe 3</button>
-          <button>Informe 4</button>
-          <button>Informe 5</button>
-          <button>Informe 6</button>
-          <button>Informe 7</button>
-          <button>Informe 8</button>
-          <button>Informe 9</button>
+          <h2>Ventas acumuladas</h2>
+          <div class="boton-group">
+            <button>COLOMBIA</button>
+            <button>RD</button>
+          </div>
+
+          <h2>Informes contables</h2>
+          <div class="boton-group">
+            <button>COLOMBIA</button>
+          </div>
+
+          <h2>Dash domicilios</h2>
+          <div class="boton-group">
+            <button>COLOMBIA</button>
+          </div>
+
+          <h2>Revenue</h2>
+          <div class="boton-group">
+            <button>COLOMBIA</button>
+          </div>
+
+          <h2>Cuentas por cobrar</h2>
+          <div class="boton-group">
+            <button>COLOMBIA</button>
+          </div>
         </div>
       </div>
     </div>
@@ -211,3 +234,4 @@
   </div>
 </body>
 </html>
+
