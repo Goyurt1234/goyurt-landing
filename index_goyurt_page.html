@@ -1,78 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"> <!-- Configura codificación -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Escala responsiva -->
   <title>Goyurt</title>
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0;                      /* Elimina márgenes por defecto */
+      padding: 0;                     /* Elimina relleno por defecto */
+      box-sizing: border-box;        /* Medidas incluyen bordes y padding */
     }
+
     html, body {
-      height: 100%;
-      font-family: 'Arial', sans-serif;
-      background-color: white;
+      height: 100%;                  /* Usa todo el alto de pantalla */
+      font-family: 'Arial', sans-serif; /* Fuente del sitio */
+      background-color: white;       /* Fondo base blanco */
     }
+
     .container {
-      width: 100vw;
-      height: 100vh;
-      display: grid;
-      grid-template-rows: 4% 26.2% 5.8% 54.56% 9.44%;
+      width: 100vw;                  /* 100% del ancho de la ventana */
+      height: 100vh;                 /* 100% del alto de la ventana */
+      display: grid;                 /* Usa grid para dividir la estructura */
+      grid-template-rows: 4% 26.2% 5.8% 54.56% 9.44%; /* Altura de secciones */
       grid-template-columns: 100%;
     }
+
     .top-white {
       background-color: white;
       display: flex;
       align-items: center;
       padding-left: 2vw;
     }
+
     .top-white img {
       height: 60%;
     }
+
     .banner {
-      background-color: #8FC9C7;
+      background-color: #8FC9C7;     /* Fondo turquesa */
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       padding: 0 5vw;
     }
+
     .banner img {
       max-height: 70%;
     }
+
     .banner h1 {
       color: white;
       font-size: 2.2vw;
       margin-top: 1vh;
     }
+
     .middle-white {
-      background-color: #BFD9D6; /* ahora vacío */
+      background-color: #BFD9D6; /* Separador visual vacío */
     }
+
     .gallery {
-      background-color: white;
+      background-color: white;       /* Sección principal con gif + texto */
       display: flex;
-      align-items: top;
-      justify-content: space-evenly;
+      align-items: center;
+      justify-content: center;
+      gap: 3vw;                      /* Espacio entre gif y texto */
       padding: 2vh 3vw;
     }
-    .gallery img {
-      height: 100%;
+
+    .gif-container {
+      flex: 1;                       /* Ocupa la mitad del ancho */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .gallery .text {
+
+ .gif-container img {
+  max-width: 45%;        /* Antes estaba en 90%, ahora es 50% más pequeño */
+  height: auto;          /* Mantiene proporción */
+  max-height: 45vh;      /* Limita altura también a 50% de lo anterior */
+  border-radius: 1vw;    /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Sombra ligera */
+}
+    .text-container {
+      flex: 1;                       /* Otra mitad para texto */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .text-container p {
       color: #67d0db;
       font-weight: bold;
       font-size: 1vw;
       max-width: 30vw;
     }
-    .gallery .text span {
+
+    .text-container span {
       color: #666;
       font-weight: normal;
-      display: block;
       margin-top: 0.5vh;
       font-size: 0.9vw;
     }
+
+    .botones {
+      margin-top: 1vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5vh;
+    }
+
+    .botones button {
+      background-color: #8FC9C7;
+      border: none;
+      padding: 0.7vh 1vw;
+      border-radius: 1vw;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9vw;
+      text-align: left;
+      transition: background-color 0.3s;
+    }
+
+    .botones button:hover {
+      background-color: #67d0db;
+    }
+
     .footer {
       background-color: #8FC9C7;
       display: flex;
@@ -80,13 +135,16 @@
       justify-content: space-between;
       padding: 0 2vw;
     }
+
     .social-icons {
       display: flex;
       gap: 1vw;
     }
+
     .social-icons img {
       height: 2.5vh;
     }
+
     .mascota {
       height: 70%;
     }
@@ -97,28 +155,49 @@
     <div class="top-white">
       <img src="Logo%20Nuevo%20Goyurt%20(1)%20(1).png" alt="Logo Goyurt">
     </div>
+
     <div class="banner">
       <img src="63f5f7d8-fe2a-4c81-ba7f-e0513f378ae4.png">
-      <h1>Saludable y delicioso</h1>
+ 
     </div>
+
     <div class="middle-white">
-      <!-- Ahora vacío o puedes dejarlo como separador -->
+      <!-- Separador vacío -->
     </div>
+
     <div class="gallery">
-      <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt="Botón click">
-      <div class="text">
-        Explora una experiencia pensada para ti, con todo lo que necesitas según tu perfil.
+      <!-- Contenedor GIF -->
+      <div class="gif-container">
+        <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt="Helado en máquina Goyurt">
+      </div>
+
+      <!-- Contenedor de texto y botones -->
+      <div class="text-container">
+        <p>Explora una experiencia pensada para ti, con todo lo que necesitas según tu perfil.</p>
         <span>informes, datos y contexto, alineados contigo.</span>
+
+        <div class="botones">
+          <button>Informe 1</button>
+          <button>Informe 2</button>
+          <button>Informe 3</button>
+          <button>Informe 4</button>
+          <button>Informe 5</button>
+          <button>Informe 6</button>
+          <button>Informe 7</button>
+          <button>Informe 8</button>
+          <button>Informe 9</button>
+        </div>
       </div>
     </div>
+
     <div class="footer">
       <div class="social-icons">
-        <img src="facebook.svg" alt="Facebook">
-        <img src="instagram.svg" alt="Instagram">
-        <img src="linkedin.svg" alt="LinkedIn">
-        <img src="whatsapp.svg" alt="WhatsApp">
+        <img src="facebook.svg">
+        <img src="instagram.svg">
+        <img src="linkedin.svg">
+        <img src="whatsapp.svg">
       </div>
-      <img src="Captura%20de%20pantalla%202025-07-31%20170450.png" class="mascota" alt="Mascota">
+      <img src="Captura%20de%20pantalla%202025-07-31%20170450.png" class="mascota">
     </div>
   </div>
 </body>
