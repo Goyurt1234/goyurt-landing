@@ -55,43 +55,40 @@
       }
     }
 
-    /* Bloques principales */
+    /* Bloques principales (lo de abajo intacto) */
     .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
     .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
     .section4 { background-color: #fffae8; flex: 0 0 7.41%; }
 
     /* División de la sección 3 */
+    .left, .right { flex: 1; min-height: 0; }
+
     .left { 
-      flex: 1; 
-      min-height: 0; 
       background-color: #bfd9d6; 
       display: flex; 
       flex-direction: column; 
       align-items: center; 
-      justify-content: flex-start;   /* Colombia: todo arriba */
+      justify-content: flex-start; 
       padding: 10px; 
-      gap: 6px;  
+      gap: 6px; 
     }
 
     .right { 
-      flex: 1; 
-      min-height: 0; 
       background-color: #fff3b1; 
       display: flex; 
       flex-direction: column; 
       align-items: center; 
+      justify-content: flex-start; /* título arriba */
       padding: 10px; 
+      gap: 6px; 
     }
 
-    /* contenedor de botones en RD */
-    .rd-buttons {
-      flex: 1; /* ocupa el espacio disponible */
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* ✅ centra verticalmente los botones */
-      align-items: center;
-      gap: 6px;
-      width: 100%;
+    /* centrado vertical solo en botones de RD */
+    .right .link-btn:first-of-type {
+      margin-top: auto; /* empuja hacia abajo hasta el centro */
+    }
+    .right .link-btn:last-of-type {
+      margin-bottom: auto; /* empuja hacia arriba hasta el centro */
     }
 
     /* Título */
@@ -116,10 +113,16 @@
     }
     .link-btn:hover { text-decoration: underline; }
 
+    /* Pantallas grandes */
+    @media (min-width: 768px) {
+      .row { flex-wrap: nowrap; }
+      .link-btn { width: auto; margin: 0; }
+    }
+
     /* Ajustes móvil */
     @media (max-width: 480px) {
       .left { gap: 2.2px; }
-      .rd-buttons { gap: 2.2px; }
+      .right { gap: 2.2px; }
       .link-btn { font-size: 12px; }
       h2 { font-size: 18px; }
     }
@@ -149,10 +152,8 @@
       </div>
       <div class="right">
         <h2>República Dominicana</h2>
-        <div class="rd-buttons">
-          <button class="link-btn">Ventas Diarias</button>
-          <button class="link-btn">Ventas Acumuladas</button>
-        </div>
+        <button class="link-btn">Ventas Diarias</button>
+        <button class="link-btn">Ventas Acumuladas</button>
       </div>
     </div>
 
@@ -160,6 +161,3 @@
   </div>
 </body>
 </html>
-
-
-
