@@ -4,67 +4,94 @@
   <meta charset="UTF-8">
   <title>Plantilla Goyurt</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Carga de la fuente Bogart */
+    @font-face {
+      font-family: 'Bogart';
+      src: url('Bogartnormal.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden; /* No scroll */
+      overflow: hidden;
+      font-family: 'Bogart', Arial, sans-serif; /* Aplicar Bogart a todo */
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-    }
+    .container { display: flex; flex-direction: column; height: 100%; width: 100%; }
 
-    /* Bloques principales */
-    .section1 {
-      background-color: #fffae8;
-      flex: 0 0 40.74%;
-    }
-
+    /* Bloques principales (100% del alto total) */
+    .section1 { background-color: #8fc9c7; flex: 0 0 40.74%; }
     .section2 {
       flex: 0 0 22.22%;
       background: url("video.gif") no-repeat center center;
-      background-size: cover; /* GIF ocupa todo el ancho del contenedor */
+      background-size: cover;
     }
-
     .section3 {
-      display: flex;
-      flex: 0 0 29.63%;
+      display: flex; flex: 0 0 29.63%;
+      overflow: hidden;
+      min-height: 0;
     }
-
-    .section4 {
-      background-color: #fffae8;
-      flex: 0 0 7.41%;
-    }
+    .section4 { background-color: #8dc9c7; flex: 0 0 7.41%; }
 
     /* División de la sección 3 */
+    .left, .right { flex: 1; min-height: 0; }
     .left {
       background-color: #bfd9d6;
-      flex: 1;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-start; padding: 12px; gap: 12px;
+    }
+    .right { background-color: #fff3b1; }
+
+    /* Título */
+    h2 { margin-bottom: 8px; color: #692100; }
+
+    /* Solo Ventas Diarias y Acumuladas en paralelo */
+    .row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
     }
 
-    .right {
-      background-color: #fff3b1;
-      flex: 1;
+    /* Botones estilo texto */
+    .link-btn {
+      font-size: 16px; color: #692100;
+      text-decoration: none; cursor: pointer;
+      background: none; border: none;
+      text-align: center;
+      font-family: 'Bogart', Arial, sans-serif; /* Forzar fuente también en botones */
     }
+    .link-btn:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="section1"></div>
     <div class="section2"></div>
+
     <div class="section3">
-      <div class="left"></div>
+      <div class="left">
+        <h2>Colombia</h2>
+
+        <div class="row">
+          <button class="link-btn"> Ventas Diarias </button>
+          <button class="link-btn">  Ventas Totales</button>
+        </div>
+
+        <button class="link-btn">Informes Contables</button>
+        <button class="link-btn">Dash Domicilios</button>
+        <button class="link-btn">Revenue</button>
+        <button class="link-btn">Cuentas por Cobrar</button>
+        <button class="link-btn">Informe de Cuentas por Cobrar</button>
+      </div>
+
       <div class="right"></div>
     </div>
+
     <div class="section4"></div>
   </div>
 </body>
