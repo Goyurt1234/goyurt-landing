@@ -55,37 +55,70 @@
       }
     }
 
-    /* Bloques principales (lo de abajo intacto) */
+    /* Bloques principales */
     .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
     .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
     .section4 { background-color: #fffae8; flex: 0 0 7.41%; }
 
     /* División de la sección 3 */
-    .left, .right { flex: 1; min-height: 0; }
-    .left { background-color: #bfd9d6; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 10px; gap: 6px; }
-    .right { background-color: #fff3b1; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 10px; gap: 30px; }
+    .left, .right { 
+      flex: 1; 
+      min-height: 0; 
+      display: flex;
+      flex-direction: column;
+      padding: 10px; 
+    }
+
+    .left { 
+      background-color: #bfd9d6; 
+      align-items: center; 
+      justify-content: flex-start;   /* Colombia: todo arriba */
+      gap: 6px;  
+    }
+
+    .right { 
+      background-color: #fff3b1; 
+      align-items: center; 
+      justify-content: flex-start;   /* título arriba */
+    }
+
+    /* contenedor de botones en RD */
+    .rd-buttons {
+      flex: 1; /* ocupa el espacio disponible */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* ✅ centra verticalmente los botones */
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+    }
 
     /* Título */
-    h2 { margin-bottom: 6px; color: #692100; text-align: center; }
-
-    /* Fila de botones */
-    .row { display: flex; flex-wrap: wrap; justify-content: center; width: 100%; gap: 10px; }
+    h2 { 
+      margin-bottom: 6px; 
+      color: #692100; 
+      text-align: center; 
+    }
 
     /* Botones */
-    .link-btn { font-size: 15px; color: #692100; text-decoration: none; cursor: pointer; background: none; border: none; text-align: center; font-family: 'Bogart', Arial, sans-serif; width: 100%; margin: 1px 0; }
-    .link-btn:hover { text-decoration: underline; }
-
-    /* Pantallas grandes */
-    @media (min-width: 768px) {
-      .row { flex-wrap: nowrap; }
-      .link-btn { width: auto; margin: 0; }
+    .link-btn { 
+      font-size: 15px; 
+      color: #692100; 
+      text-decoration: none; 
+      cursor: pointer; 
+      background: none; 
+      border: none; 
+      text-align: center; 
+      font-family: 'Bogart', Arial, sans-serif; 
+      width: 100%; 
+      margin: 1px 0; 
     }
+    .link-btn:hover { text-decoration: underline; }
 
     /* Ajustes móvil */
     @media (max-width: 480px) {
       .left { gap: 2.2px; }
-      .right { gap: 6px; }
-      .row { gap: 2.2px; }
+      .rd-buttons { gap: 2.2px; }
       .link-btn { font-size: 12px; }
       h2 { font-size: 18px; }
     }
@@ -115,14 +148,18 @@
       </div>
       <div class="right">
         <h2>República Dominicana</h2>
-        <button class="link-btn">Ventas Diarias</button>
-        <button class="link-btn">Ventas Acumuladas</button>
+        <div class="rd-buttons">
+          <button class="link-btn">Ventas Diarias</button>
+          <button class="link-btn">Ventas Acumuladas</button>
+        </div>
       </div>
     </div>
 
     <div class="section4"></div>
   </div>
 </body>
+</html>
+
 </html>
 
 
