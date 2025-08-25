@@ -43,7 +43,8 @@
     .left {
       background-color: #bfd9d6;
       display: flex; flex-direction: column; align-items: center;
-      justify-content: flex-start; padding: 10px; gap: 6px; /* separación más pequeña */
+      justify-content: flex-start; padding: 10px; 
+      gap: 10px; /* PC por defecto */
     }
     .right { background-color: #fff3b1; }
 
@@ -56,7 +57,7 @@
       flex-wrap: wrap;
       justify-content: center;
       width: 100%;
-      gap: 6px;
+      gap: 10px; /* PC por defecto */
     }
 
     /* Botones */
@@ -82,6 +83,8 @@
 
     /* Ajustes móvil */
     @media (max-width: 480px) {
+      .left { gap: 6px; }   /* Ajuste en móvil */
+      .row { gap: 6px; }    /* Ajuste en móvil */
       .link-btn { font-size: 14px; }
       h2 { font-size: 18px; }
     }
