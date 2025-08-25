@@ -63,9 +63,15 @@
       text-decoration: none; cursor: pointer;
       background: none; border: none;
       text-align: center;
-      font-family: 'Bogart', Arial, sans-serif; /* Forzar fuente también en botones */
+      font-family: 'Bogart', Arial, sans-serif;
     }
     .link-btn:hover { text-decoration: underline; }
+
+    /* Ajuste para subir los botones sin mover el título */
+    .left .row,
+    .left .link-btn {
+      transform: translateY(-20%); /* ajusta el % a tu gusto */
+    }
   </style>
 </head>
 <body>
@@ -86,7 +92,7 @@
         <button class="link-btn">Dash Domicilios</button>
         <button class="link-btn">Revenue</button>
         <button class="link-btn">Cuentas por Cobrar</button>
-        <button class="link-btn">Informe de Cuentas por Cobrar</button>
+      
       </div>
 
       <div class="right"></div>
