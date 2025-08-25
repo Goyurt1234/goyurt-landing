@@ -1,216 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Goyurt | Dashboard de Informes</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <title>Plantilla Goyurt</title>
   <style>
-    :root {
-      --color-principal: #8FC9C7;
-      --color-principal-hover: #7abebc;
-      --color-fondo: #F0F5F5;
-      --color-texto-titulos: #008D85;
-      --color-blanco: #ffffff;
-      --espacio-md: 1rem;
-      --espacio-lg: 1.5rem;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--color-fondo);
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* No scroll */
+    }
+
+    .container {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .top-banner {
+      height: 100%;
       width: 100%;
-      background-color: var(--color-blanco);
-      padding: 1rem 0;
-      text-align: center;
     }
 
-    .top-banner img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 10px;
+    /* Bloques principales */
+    .section1 {
+      background-color: #8fc9c7;
+      flex: 0 0 40.74%;
     }
 
-    .click-area {
-      margin-top: 1rem;
+    .section2 {
+      flex: 0 0 22.22%;
+      background: url("img/Diseño%20sin%20título%20(1).gif") no-repeat center center;
+      background-size: cover; /* Se adapta al ancho y alto del contenedor */
     }
 
-    .click-area img {
-      width: 90px;
-      margin-bottom: 0.5rem;
-    }
-
-    .click-area p {
-      font-size: 0.85rem;
-      color: #008D85;
-      font-weight: 600;
-      max-width: 320px;
-      margin: 0 auto;
-    }
-
-    .click-area small {
-      display: block;
-      margin-top: 0.4rem;
-      font-size: 0.65rem;
-      color: #444;
-    }
-
-    .app-main {
+    .section3 {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2vw;
-      padding: 2vh 5vw;
-      flex-wrap: wrap;
+      flex: 0 0 29.63%;
     }
 
-    .reports-grid {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      gap: 1.2rem 2rem;
+    .section4 {
+      background-color: #8dc9c7;
+      flex: 0 0 7.41%;
     }
 
-    .info-item {
-      text-align: center;
+    /* División de la sección 3 */
+    .left {
+      background-color: #bfd9d6;
+      flex: 1;
     }
 
-    .info-item h2 {
-      font-size: 1rem;
-      color: var(--color-texto-titulos);
-      margin-bottom: 0.3rem;
+    .right {
+      background-color: #fff3b1;
+      flex: 1;
     }
-
-    .info-item .btn {
-      background-color: var(--color-principal);
-      color: white;
-      padding: 0.4rem 1.2rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-
-    .info-item .btn:hover {
-      background-color: var(--color-principal-hover);
-    }
-
-    .video-container {
-      width: 180px;
-      height: 320px;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-
-    .video-container img {
-      width: 50%;
-      height: 50%;
-      object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-      .app-main {
-        flex-direction: column;
-      }
-      .video-container {
-        width: 160px;
-        height: 280px;
-      }
-    }
-
-    .app-footer {
-      background-color: var(--color-principal);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem var(--espacio-lg);
-      flex-wrap: wrap;
-    }
-
-    .footer-logo { height: 1.8rem; }
-    .footer-socials { display: flex; gap: var(--espacio-md); }
-    .footer-socials .icon { height: 1.2rem; }
-    .footer-mascot { height: 3rem; }
   </style>
 </head>
 <body>
-  <section class="top-banner">
-    <img src="https://i.imgur.com/pE3e4mB.png" alt="Banner Goyurt">
-    <div class="click-area">
-      <img src="https://i.imgur.com/GsAMf6H.png" alt="Click">
-      <p>Explora una experiencia pensada para ti, con todo lo que necesitas según tu perfil.</p>
-      <small>Informes, datos y contexto, alineados contigo.</small>
+  <div class="container">
+    <div class="section1"></div>
+    <div class="section2"></div>
+    <div class="section3">
+      <div class="left"></div>
+      <div class="right"></div>
     </div>
-  </section>
-
-  <main class="app-main">
-    <div class="reports-grid">
-      <div class="info-item">
-        <h2>Ventas diarias</h2>
-        <button class="btn">COLOMBIA</button>
-      </div>
-      <div class="info-item">
-        <h2>Ventas diarias</h2>
-        <button class="btn">RD</button>
-      </div>
-      <div class="info-item">
-        <h2>Ventas acumuladas</h2>
-        <button class="btn">COLOMBIA</button>
-      </div>
-      <div class="info-item">
-        <h2>Ventas acumuladas</h2>
-        <button class="btn">RD</button>
-      </div>
-      <div class="info-item">
-        <h2>Informes contables</h2>
-        <button class="btn">COLOMBIA</button>
-      </div>
-      <div class="info-item">
-        <h2>Dash domicilios</h2>
-        <button class="btn">COLOMBIA</button>
-      </div>
-      <div class="info-item">
-        <h2>Revenue</h2>
-        <button class="btn">COLOMBIA</button>
-      </div>
-      <div class="info-item">
-        <h2>Cuentas por cobrar</h2>
-        <button class="btn">COLOMBIA</button>
-      </div>
-    </div>
-
-    <div class="video-container">
-      <img src="https://i.ibb.co/FLqgFY5W/Dise-o-sin-t-tulo-2-1-1-1.gif" alt="Video demostrativo de producto Goyurt">
-    </div>
-  </main>
-
-  <footer class="app-footer">
-    <img src="https://i.imgur.com/g8e1TVE.png" alt="Logo de Goyurt" class="footer-logo">
-    <div class="footer-socials">
-      <img src="https://www.svgrepo.com/show/521654/facebook.svg" alt="Facebook" class="icon">
-      <img src="https://www.svgrepo.com/show/521843/instagram.svg" alt="Instagram" class="icon">
-      <img src="https://www.svgrepo.com/show/521743/linkedin.svg" alt="LinkedIn" class="icon">
-      <img src="https://www.svgrepo.com/show/521712/whatsapp.svg" alt="WhatsApp" class="icon">
-    </div>
-    <img src="https://i.imgur.com/r6t5s0F.png" alt="Mascota de Goyurt" class="footer-mascot">
-  </footer>
+    <div class="section4"></div>
+  </div>
 </body>
 </html>
 
