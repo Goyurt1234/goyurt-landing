@@ -62,15 +62,16 @@
       background-color: #fffae8; 
       flex: 0 0 7.41%; 
       display: flex;
-      justify-content: flex-start; /* pegado a la izquierda */
-      align-items: center;
+      justify-content: flex-start;  /* pegado a la izquierda */
+      align-items: flex-end;        /* pegado abajo */
       padding-left: 10px; 
+      padding-bottom: 2px;          /* pequeño margen abajo */
     }
 
     /* Imagen del logo en section4 */
     .section4 img {
       max-height: 100%;
-      height: auto;
+      height: 100%;
       width: auto;
       object-fit: contain;
       display: block;
@@ -149,11 +150,6 @@
   </style>
 </head>
 <body>
-  <!-- 🔹 TEST: Logo arriba de todo -->
-  <div style="position: absolute; top: 10px; left: 10px; z-index: 9999;">
-    <img src="logo.png" alt="Logo de prueba" style="max-height:100px; width:auto; border:2px solid red;">
-  </div>
-
   <div class="container">
     <div class="section1">
       <img src="otrocompleto.png" alt="Overlay" class="overlay">
