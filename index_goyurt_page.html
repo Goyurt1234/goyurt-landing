@@ -27,9 +27,19 @@
     /* Banner ajustado a la altura, recorte desde la izquierda */
     .section1 { 
       flex: 0 0 40.74%;
-      background: url("banner2.jpg") 
-                  no-repeat right center; 
+      background: url("banner2.jpg") no-repeat right center; 
       background-size: auto 100%;  /* 👈 Ajusta siempre al alto */
+      position: relative;          /* 👈 Necesario para posicionar la otra imagen encima */
+    }
+
+    /* Imagen encima del banner */
+    .section1 img.overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;   /* Se ajusta a la altura del banner */
+      object-fit: contain;
+      pointer-events: none; /* Para que no bloquee clics al banner */
     }
 
     .section2 {
@@ -109,7 +119,10 @@
 </head>
 <body>
   <div class="container">
-    <div class="section1"></div>
+    <div class="section1">
+      <!-- Imagen superpuesta -->
+      <img src="otrocompleto.png" alt="Overlay" class="overlay">
+    </div>
     <div class="section2"></div>
 
     <div class="section3">
