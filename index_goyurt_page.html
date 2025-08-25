@@ -36,7 +36,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%;
+      height: 60%;   /* PC */
       object-fit: contain;
       pointer-events: none;
     }
@@ -72,6 +72,15 @@
     /* Título */
     h2 { margin-bottom: 6px; color: #692100; text-align: center; }
 
+    /* Fila de botones */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+    }
+
     /* Botones */
     .link-btn {
       font-size: 15px; 
@@ -87,18 +96,18 @@
     }
     .link-btn:hover { text-decoration: underline; }
 
-    /* 🔹 Versión móvil */
+    /* 🔹 Versión móvil (solo afecta al banner) */
     @media (max-width: 768px) {
       .section1 {
         background: url("bannercel.jpg") no-repeat right center;
-        background-size: auto 100%;  /* se ajusta siempre al alto */
+        background-size: auto 100%;
       }
 
       .section1 img.overlay {
         top: 0;
         left: 0;
         right: auto;
-        height: 30%;   /* 👈 en móvil más pequeño */
+        height: 30%;   /* móvil */
       }
     }
   </style>
