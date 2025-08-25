@@ -24,7 +24,7 @@
 
     .container { display: flex; flex-direction: column; height: 100%; width: 100%; }
 
-    /* Banner versión PC */
+    /* 🔹 Banner PC */
     .section1 { 
       flex: 0 0 40.74%;
       background: url("banner2.jpg") no-repeat right center; 
@@ -41,74 +41,57 @@
       pointer-events: none;
     }
 
-    .section2 {
-      flex: 0 0 22.22%;
-      background: url("video.gif") no-repeat center center;
-      background-size: cover;
-    }
-    .section3 {
-      display: flex; flex: 0 0 29.63%;
-      overflow: hidden;
-      min-height: 0;
-    }
-    .section4 { background-color: #fffae8; flex: 0 0 7.41%; }
-
-    /* División de la sección 3 */
-    .left, .right { flex: 1; min-height: 0; }
-    .left {
-      background-color: #bfd9d6;
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: flex-start; padding: 10px; 
-      gap: 6px;
-    }
-    .right {
-      background-color: #fff3b1;
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: flex-start; 
-      padding: 10px; 
-      gap: 30px;
-    }
-
-    /* Título */
-    h2 { margin-bottom: 6px; color: #692100; text-align: center; }
-
-    /* Fila de botones */
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-      gap: 10px;
-    }
-
-    /* Botones */
-    .link-btn {
-      font-size: 15px; 
-      color: #692100;
-      text-decoration: none; 
-      cursor: pointer;
-      background: none; 
-      border: none;
-      text-align: center;
-      font-family: 'Bogart', Arial, sans-serif;
-      width: 100%;
-      margin: 1px 0;  
-    }
-    .link-btn:hover { text-decoration: underline; }
-
-    /* 🔹 Versión móvil (solo afecta al banner) */
+    /* 🔹 Banner móvil */
     @media (max-width: 768px) {
       .section1 {
         background: url("bannercel.jpg") no-repeat right center;
         background-size: auto 100%;
       }
-
       .section1 img.overlay {
         top: 0;
         left: 0;
         right: auto;
         height: 30%;   /* móvil */
       }
+    }
+
+    /* Bloques principales (lo de abajo intacto) */
+    .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
+    .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
+    .section4 { background-color: #fffae8; flex: 0 0 7.41%; }
+
+    /* División de la sección 3 */
+    .left, .right { flex: 1; min-height: 0; }
+    .left { background-color: #bfd9d6; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 10px; gap: 6px; }
+    .right { background-color: #fff3b1; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 10px; gap: 30px; }
+
+    /* Título */
+    h2 { margin-bottom: 6px; color: #692100; text-align: center; }
+
+    /* Fila de botones */
+    .row { display: flex; flex-wrap: wrap; justify-content: center; width: 100%; gap: 10px; }
+
+    /* Botones */
+    .link-btn { font-size: 15px; color: #692100; text-decoration: none; cursor: pointer; background: none; border: none; text-align: center; font-family: 'Bogart', Arial, sans-serif; width: 100%; margin: 1px 0; }
+    .link-btn:hover { text-decoration: underline; }
+
+    /* Pantallas grandes */
+    @media (min-width: 768px) {
+      .row { flex-wrap: nowrap; }
+      .link-btn { width: auto; margin: 0; }
+    }
+
+    /* Ajustes móvil */
+    @media (max-width: 480px) {
+      .left { gap: 2.2px; }
+      .right { gap: 6px; }
+      .row { gap: 2.2px; }
+      .link-btn { font-size: 12px; }
+      h2 { font-size: 18px; }
+    }
+    @media (max-width: 360px) {
+      .link-btn { font-size: 12px; }
+      h2 { font-size: 14px; }
     }
   </style>
 </head>
@@ -122,7 +105,7 @@
 
     <div class="section3">
       <div class="left">
-        <h2>Colombias</h2>
+        <h2>Colombia</h2>
         <button class="link-btn">Ventas Diarias</button>
         <button class="link-btn">Ventas Totales</button>
         <button class="link-btn">Informes Contables</button>
@@ -130,7 +113,6 @@
         <button class="link-btn">Revenue</button>
         <button class="link-btn">Cuentas por Cobrar</button>
       </div>
-
       <div class="right">
         <h2>República Dominicana</h2>
         <button class="link-btn">Ventas Diarias</button>
