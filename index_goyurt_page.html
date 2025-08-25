@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plantilla Goyurt</title>
   <style>
-    /* Fuente Bogart */
+    /* Fuente Bogart Bold */
     @font-face {
       font-family: 'Bogart';
       src: url('Bogardbold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Fuente Bogart Normal SOLO para botones */
+    @font-face {
+      font-family: 'BogartNormal';
+      src: url('bogartnormal.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
@@ -71,8 +79,19 @@
     /* Fila de botones */
     .row { display: flex; flex-wrap: wrap; justify-content: center; width: 100%; gap: 10px; }
 
-    /* Botones */
-    .link-btn { font-size: 15px; color: #692100; text-decoration: none; cursor: pointer; background: none; border: none; text-align: center; font-family: 'Bogart', Arial, sans-serif; width: 100%; margin: 1px 0; }
+    /* Botones con BogartNormal */
+    .link-btn { 
+      font-size: 15px; 
+      color: #692100; 
+      text-decoration: none; 
+      cursor: pointer; 
+      background: none; 
+      border: none; 
+      text-align: center; 
+      font-family: 'BogartNormal', Arial, sans-serif; /* ✅ Cambiado solo aquí */
+      width: 100%; 
+      margin: 1px 0; 
+    }
     .link-btn:hover { text-decoration: underline; }
 
     /* Pantallas grandes */
@@ -124,3 +143,4 @@
   </div>
 </body>
 </html>
+
