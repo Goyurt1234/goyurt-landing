@@ -58,7 +58,20 @@
     /* Bloques principales (lo de abajo intacto) */
     .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
     .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
-    .section4 { background-color: #fffae8; flex: 0 0 7.41%; }
+    .section4 { 
+      background-color: #fffae8; 
+      flex: 0 0 7.41%; 
+      display: flex;
+      justify-content: flex-start; /* pegado a la izquierda */
+      align-items: center;
+      padding-left: 10px; /* margen izquierdo opcional */
+    }
+
+    /* Imagen del logo en section4 */
+    .section4 img {
+      height: 100%;  /* ocupa toda la altura */
+      width: auto;   /* mantiene proporción */
+    }
 
     /* División de la sección 3 */
     .left, .right { flex: 1; min-height: 0; }
@@ -157,7 +170,9 @@
       </div>
     </div>
 
-    <div class="section4"></div>
+    <div class="section4">
+      <img src="logo.png" alt="Logo">
+    </div>
   </div>
 </body>
 </html>
