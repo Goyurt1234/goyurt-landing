@@ -18,28 +18,27 @@
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden; /* 👈 evita scroll */
+      overflow: hidden;
       font-family: 'Bogart', Arial, sans-serif;
     }
 
     .container { display: flex; flex-direction: column; height: 100%; width: 100%; }
 
-    /* Banner ajustado a la altura, recorte desde la izquierda */
+    /* Banner versión PC */
     .section1 { 
       flex: 0 0 40.74%;
       background: url("banner2.jpg") no-repeat right center; 
-      background-size: auto 100%;  /* 👈 Ajusta siempre al alto */
-      position: relative;          /* 👈 Necesario para posicionar la otra imagen encima */
+      background-size: auto 100%; 
+      position: relative;
     }
 
-    /* Imagen encima del banner */
     .section1 img.overlay {
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%;   /* Se ajusta a la altura del banner */
+      height: 60%;
       object-fit: contain;
-      pointer-events: none; /* Para que no bloquee clics al banner */
+      pointer-events: none;
     }
 
     .section2 {
@@ -73,15 +72,6 @@
     /* Título */
     h2 { margin-bottom: 6px; color: #692100; text-align: center; }
 
-    /* Fila de botones */
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-      gap: 10px;
-    }
-
     /* Botones */
     .link-btn {
       font-size: 15px; 
@@ -97,23 +87,19 @@
     }
     .link-btn:hover { text-decoration: underline; }
 
-    /* Pantallas grandes */
-    @media (min-width: 768px) {
-      .row { flex-wrap: nowrap; }
-      .link-btn { width: auto; margin: 0; }
-    }
+    /* 🔹 Versión móvil */
+    @media (max-width: 768px) {
+      .section1 {
+        background: url("bannercel.jpg") no-repeat right center;
+        background-size: auto 100%;  /* se ajusta siempre al alto */
+      }
 
-    /* Ajustes móvil */
-    @media (max-width: 480px) {
-      .left { gap: 2.2px; }
-      .right { gap: 6px; }
-      .row { gap: 2.2px; }
-      .link-btn { font-size: 12px; }
-      h2 { font-size: 18px; }
-    }
-    @media (max-width: 360px) {
-      .link-btn { font-size: 12px; }
-      h2 { font-size: 14px; }
+      .section1 img.overlay {
+        top: 0;
+        left: 0;
+        right: auto;
+        height: 30%;   /* 👈 en móvil más pequeño */
+      }
     }
   </style>
 </head>
