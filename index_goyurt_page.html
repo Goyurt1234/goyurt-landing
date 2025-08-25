@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plantilla Goyurt</title>
   <style>
-    /* Carga de la fuente Bogart */
+    /* Fuente Bogart */
     @font-face {
       font-family: 'Bogart';
       src: url('Bogardnormal.ttf') format('truetype');
@@ -43,12 +43,12 @@
     .left {
       background-color: #bfd9d6;
       display: flex; flex-direction: column; align-items: center;
-      justify-content: flex-start; padding: 12px; gap: 8px;
+      justify-content: flex-start; padding: 10px; gap: 4px; /* separación más pequeña */
     }
     .right { background-color: #fff3b1; }
 
     /* Título */
-    h2 { margin-bottom: 8px; color: #692100; text-align: center; }
+    h2 { margin-bottom: 6px; color: #692100; text-align: center; }
 
     /* Fila de botones */
     .row {
@@ -56,10 +56,10 @@
       flex-wrap: wrap;
       justify-content: center;
       width: 100%;
-      gap: 8px;
+      gap: 6px;
     }
 
-    /* Botones estilo texto */
+    /* Botones */
     .link-btn {
       font-size: 16px; 
       color: #692100;
@@ -69,25 +69,24 @@
       border: none;
       text-align: center;
       font-family: 'Bogart', Arial, sans-serif;
-      width: 100%;             /* que ocupen todo el ancho disponible */
-      margin: 2px 0;
+      width: 100%;
+      margin: 1px 0;  /* menos espacio vertical */
     }
     .link-btn:hover { text-decoration: underline; }
 
-    /* Ajuste responsivo: pantallas grandes */
+    /* Pantallas grandes */
     @media (min-width: 768px) {
       .row { flex-wrap: nowrap; }
       .link-btn { width: auto; margin: 0; }
     }
 
-    /* Ajuste responsivo: pantallas pequeñas */
+    /* Ajustes móvil */
     @media (max-width: 480px) {
-      .link-btn { font-size: 14px; }   /* letra más pequeña */
+      .link-btn { font-size: 14px; }
       h2 { font-size: 18px; }
     }
-
     @media (max-width: 360px) {
-      .link-btn { font-size: 12px; }   /* aún más pequeña en pantallas muy angostas */
+      .link-btn { font-size: 12px; }
       h2 { font-size: 16px; }
     }
   </style>
@@ -110,7 +109,6 @@
         <button class="link-btn">Dash Domicilios</button>
         <button class="link-btn">Revenue</button>
         <button class="link-btn">Cuentas por Cobrar</button>
-        
       </div>
 
       <div class="right"></div>
