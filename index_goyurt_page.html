@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plantilla Goyurt</title>
   <style>
     /* Carga de la fuente Bogart */
@@ -18,7 +19,7 @@
       height: 100%;
       width: 100%;
       overflow: hidden;
-      font-family: 'Bogart', Arial, sans-serif; /* Aplicar Bogart a todo */
+      font-family: 'Bogart', Arial, sans-serif;
     }
 
     .container { display: flex; flex-direction: column; height: 100%; width: 100%; }
@@ -49,12 +50,13 @@
     /* Título */
     h2 { margin-bottom: 8px; color: #692100; }
 
-    /* Solo Ventas Diarias y Acumuladas en paralelo */
+    /* Filas de botones */
     .row {
       display: flex;
       gap: 20px;
       justify-content: center;
       width: 100%;
+      flex-wrap: wrap;
     }
 
     /* Botones estilo texto */
@@ -64,13 +66,26 @@
       background: none; border: none;
       text-align: center;
       font-family: 'Bogart', Arial, sans-serif;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 4px auto;
     }
     .link-btn:hover { text-decoration: underline; }
 
-    /* Ajuste para subir los botones sin mover el título */
+    /* Responsividad: en pantallas grandes los botones vuelven a su tamaño natural */
+    @media (min-width: 768px) {
+      .row { flex-wrap: nowrap; }
+      .link-btn {
+        width: auto;
+        margin: 0;
+      }
+    }
+
+    /* Ajuste para subir los botones un poco sin mover el título */
     .left .row,
     .left .link-btn {
-      transform: translateY(-20%); /* ajusta el % a tu gusto */
+      transform: translateY(-3%);
     }
   </style>
 </head>
@@ -92,7 +107,7 @@
         <button class="link-btn">Dash Domicilios</button>
         <button class="link-btn">Revenue</button>
         <button class="link-btn">Cuentas por Cobrar</button>
-      
+        <button class="link-btn">Informe de Cuentas por Cobrar</button>
       </div>
 
       <div class="right"></div>
@@ -102,4 +117,5 @@
   </div>
 </body>
 </html>
+
 
