@@ -55,7 +55,7 @@
       }
     }
 
-    /* Bloques principales (lo de abajo intacto) */
+    /* Bloques principales */
     .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
     .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
     .section4 { 
@@ -64,14 +64,16 @@
       display: flex;
       justify-content: flex-start; /* pegado a la izquierda */
       align-items: center;
-      padding-left: 10px; /* margen izquierdo opcional */
+      padding-left: 10px; 
     }
 
     /* Imagen del logo en section4 */
     .section4 img {
-      max-height: 100%;  /* ocupa toda la altura */
-      width: auto;   /* mantiene proporción */
-      height: auto; 
+      max-height: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     /* División de la sección 3 */
@@ -92,17 +94,17 @@
       display: flex; 
       flex-direction: column; 
       align-items: center; 
-      justify-content: flex-start; /* título arriba */
+      justify-content: flex-start; 
       padding: 10px; 
       gap: 6px; 
     }
 
     /* centrado vertical solo en botones de RD */
     .right .link-btn:first-of-type {
-      margin-top: auto; /* empuja hacia abajo hasta el centro */
+      margin-top: auto;
     }
     .right .link-btn:last-of-type {
-      margin-bottom: auto; /* empuja hacia arriba hasta el centro */
+      margin-bottom: auto;
     }
 
     /* Título */
@@ -147,9 +149,13 @@
   </style>
 </head>
 <body>
+  <!-- 🔹 TEST: Logo arriba de todo -->
+  <div style="position: absolute; top: 10px; left: 10px; z-index: 9999;">
+    <img src="logo.png" alt="Logo de prueba" style="max-height:100px; width:auto; border:2px solid red;">
+  </div>
+
   <div class="container">
     <div class="section1">
-      <!-- Imagen superpuesta -->
       <img src="otrocompleto.png" alt="Overlay" class="overlay">
     </div>
     <div class="section2"></div>
