@@ -22,7 +22,12 @@
       font-family: 'Bogart', Arial, sans-serif;
     }
 
-    .container { display: flex; flex-direction: column; height: 100%; width: 100%; }
+    .container { 
+      display: flex; 
+      flex-direction: column; 
+      height: 100%; 
+      width: 100%; 
+    }
 
     /* 🔹 Banner PC */
     .section1 {
@@ -56,16 +61,28 @@
     }
 
     /* Bloques principales */
-    .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
-    .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
+    .section2 { 
+      flex: 0 0 22.22%; 
+      background: url("video.gif") no-repeat center center; 
+      background-size: cover; 
+    }
+
+    .section3 { 
+      display: flex; 
+      flex: 0 0 29.63%; 
+      overflow: hidden; 
+      min-height: 0; 
+    }
+
     .section4 {
       background-color: #fffae8;
       flex: 0 0 7.41%;
       display: flex;
-      justify-content: flex-start;  /* pegado a la izquierda */
-      align-items: flex-end;        /* pegado abajo */
+      justify-content: space-between;  /* izquierda y derecha */
+      align-items: flex-end;           /* pegado abajo */
       padding-left: 10px;
-      padding-bottom: 2px;          /* pequeño margen abajo */
+      padding-bottom: 2px;             /* pequeño margen abajo */
+      position: relative;
     }
 
     /* Imagen del logo en section4 */
@@ -146,21 +163,20 @@
       h2 { font-size: 14px; }
     }
 
-    /* 🔹 Imágenes flotantes abajo a la derecha */
+    /* 🔹 Imágenes flotantes dentro de section4 */
     .floating-icons {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
       display: flex;
       flex-direction: row;   /* horizontal */
       gap: 20px;             /* espacio entre logos */
-      z-index: 9999;
+      height: 100%;          /* ocupar toda la altura de section4 */
       align-items: flex-end; /* alineados abajo */
+      padding-right: 10px;
     }
 
     .floating-icons img {
-      width: 70%;
-      height: auto;
+      height: 100%;   /* 🔹 se ajusta al alto de section4 */
+      width: auto;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -188,17 +204,16 @@
       </div>
     </div>
 
+    <!-- 🔹 Última sección con logos -->
     <div class="section4">
       <img src="logo.png" alt="Logo">
+      <div class="floating-icons">
+        <img src="j1.jpg" alt="Icono 1">
+        <img src="j2.jpg" alt="Icono 2">
+        <img src="j3.jpg" alt="Icono 3">
+        <img src="j4.jpg" alt="Icono 4">
+      </div>
     </div>
-  </div>
-
-  <!-- 🔹 Imágenes flotantes -->
-  <div class="floating-icons">
-    <img src="j1.jpg" alt="Icono 2">
-    <img src="j2.jpg" alt="Icono 3">
-    <img src="j3.jpg" alt="Icono 4">
-    <img src="j4.jpg" alt="WhatsApp">
   </div>
 </body>
 </html>
