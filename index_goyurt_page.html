@@ -70,10 +70,11 @@
 
     /* Imagen del logo en section4 */
     .section4 img {
-  height: 8vh;   /* 5% de la altura de la ventana */
-  width: auto;   /* mantiene proporción */
-  display: block;
-}
+      height: 8vh;
+      width: auto;
+      display: block;
+    }
+
     /* División de la sección 3 */
     .left, .right { flex: 1; min-height: 0; }
 
@@ -144,6 +145,21 @@
       .link-btn { font-size: 12px; }
       h2 { font-size: 14px; }
     }
+
+    /* 🔹 Imágenes flotantes abajo a la derecha */
+    .floating-icons {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 9999;
+    }
+    .floating-icons img {
+      width: 50%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -173,6 +189,14 @@
     <div class="section4">
       <img src="logo.png" alt="Logo">
     </div>
+  </div>
+
+  <!-- 🔹 Imágenes flotantes -->
+  <div class="floating-icons">
+    <img src="2.png" alt="Icono 2">
+    <img src="3.png" alt="Icono 3">
+    <img src="4.png" alt="Icono 4">
+    <img src="whats.png" alt="WhatsApp">
   </div>
 </body>
 </html>
