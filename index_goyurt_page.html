@@ -79,9 +79,9 @@
       flex: 0 0 7.41%;
       display: flex;
       justify-content: space-between;  /* izquierda y derecha */
-      align-items: flex-end;           /* pegado abajo */
+      align-items: flex-end;           
       padding-left: 10px;
-      padding-bottom: 2px;             /* pequeño margen abajo */
+      padding-bottom: 2px;             
       position: relative;
     }
 
@@ -166,16 +166,16 @@
     /* 🔹 Imágenes flotantes dentro de section4 */
     .floating-icons {
       display: flex;
-      flex-direction: row;   /* horizontal */
-      gap: 20px;             /* espacio entre logos */
-      height: 35%;          /* ocupar toda la altura de section4 */
-      align-items: flex-end; /* alineados abajo */
+      flex-direction: row;       /* horizontal */
+      gap: 20px;                 /* espacio entre logos */
+      height: 100%;              /* ocupar toda la altura de section4 */
+      justify-content: center;   /* centrado horizontal */
+      align-items: center;       /* centrado vertical */
       padding-right: 10px;
-      padding-bottom: 5px;  /* 🔹 los sube un poco *
     }
 
     .floating-icons img {
-      height: 35%;   /* 🔹 se ajusta al alto de section4 */
+      height: 50%;   /* 🔹 ocupan el 50% de la altura del contenedor */
       width: auto;
       object-fit: contain;
     }
@@ -190,7 +190,7 @@
 
     <div class="section3">
       <div class="left">
-        <h2>Colombialo</h2>
+        <h2>Colombia</h2>
         <button class="link-btn">Ventas Diarias</button>
         <button class="link-btn">Ventas Totales</button>
         <button class="link-btn">Informes Contables</button>
