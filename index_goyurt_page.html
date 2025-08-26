@@ -62,18 +62,37 @@
       background-color: #fffae8; 
       flex: 0 0 7.41%; 
       display: flex;
-      justify-content: flex-start;  /* pegado a la izquierda */
-      align-items: flex-end;        /* pegado abajo */
-      padding-left: 10px; 
-      padding-bottom: 2px;          /* pequeño margen abajo */
+      justify-content: space-between; /* logo izquierda - iconos derecha */
+      align-items: flex-end;          
+      padding: 0 10px 2px 10px;        
     }
 
     /* Imagen del logo en section4 */
-    .section4 img {
-  height: 8vh;   /* 5% de la altura de la ventana */
-  width: auto;   /* mantiene proporción */
-  display: block;
-}
+    .section4 .logo {
+      height: 8vh;   /* tamaño relativo */
+      width: auto;   
+      display: block;
+    }
+
+    /* Contenedor de redes sociales */
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 12px;   /* espacio entre iconos */
+    }
+
+    .social-icons a img {
+      height: 6%;       /* 6% del tamaño original */
+      width: auto;      
+      object-fit: contain;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .social-icons a img:hover {
+      transform: scale(1.15); /* efecto zoom al pasar mouse */
+    }
+
     /* División de la sección 3 */
     .left, .right { flex: 1; min-height: 0; }
 
@@ -170,8 +189,15 @@
       </div>
     </div>
 
+    <!-- 🔹 Footer con logo + redes -->
     <div class="section4">
-      <img src="logo.png" alt="Logo">
+      <img src="logo.png" alt="Logo" class="logo">
+      <div class="social-icons">
+        <a href="https://facebook.com/goyurt" target="_blank"><img src="2.png" alt="Facebook"></a>
+        <a href="https://instagram.com/goyurt" target="_blank"><img src="3.png" alt="Instagram"></a>
+        <a href="https://linkedin.com/company/goyurt" target="_blank"><img src="4.png" alt="LinkedIn"></a>
+        <a href="https://wa.me/573001112233" target="_blank"><img src="Whats.png" alt="WhatsApp"></a>
+      </div>
     </div>
   </div>
 </body>
