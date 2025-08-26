@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WEB Goyurt BI</title>
+  <title>WEB goyurt BI</title>
   <style>
     /* Fuente Bogart */
     @font-face {
@@ -25,10 +25,10 @@
     .container { display: flex; flex-direction: column; height: 100%; width: 100%; }
 
     /* 🔹 Banner PC */
-    .section1 { 
+    .section1 {
       flex: 0 0 40.74%;
-      background: url("bannerp.jpg") no-repeat right center; 
-      background-size: auto 100%; 
+      background: url("bannerp.jpg") no-repeat right center;
+      background-size: auto 100%;
       position: relative;
     }
 
@@ -58,73 +58,43 @@
     /* Bloques principales */
     .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
     .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
-
-    /* 🔹 Footer */
-    .section4 { 
-      background-color: #fffae8; 
-      flex: 0 0 7.41%; 
+    .section4 {
+      background-color: #fffae8;
+      flex: 0 0 7.41%;
       display: flex;
-      justify-content: space-between; /* Logo a la izq, redes+imagen a la der */
-      align-items: flex-end;          
-      padding: 0 10px 2px 10px;        
+      justify-content: flex-start;  /* pegado a la izquierda */
+      align-items: flex-end;        /* pegado abajo */
+      padding-left: 10px;
+      padding-bottom: 2px;          /* pequeño margen abajo */
     }
 
-    /* Imagen del logo a la izquierda (sin cambios) */
-    .section4 img.logo {
-      height: 8vh;   
-      width: auto;   
-      display: block;
-    }
-
-    /* Contenedor de imagen derecha + redes */
-    .right-footer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    /* Imagen derecha (idéntica al original) */
-    .right-footer img.main {
-      height: 8vh;
-      width: auto;
-      display: block;
-    }
-
-    /* Redes sociales debajo de la imagen derecha */
-    .social-icons {
-      display: flex;
-      gap: 6px;
-      margin-top: 2px;
-    }
-
-    .social-icons img {
-      height: 2%;   /* bien pequeñitas */
-      width: auto;
-      object-fit: contain;
-      cursor: pointer;
-    }
-
+    /* Imagen del logo en section4 */
+    .section4 img {
+  height: 8vh;   /* 5% de la altura de la ventana */
+  width: auto;   /* mantiene proporción */
+  display: block;
+}
     /* División de la sección 3 */
     .left, .right { flex: 1; min-height: 0; }
 
-    .left { 
-      background-color: #bfd9d6; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      justify-content: flex-start; 
-      padding: 10px; 
-      gap: 6px; 
+    .left {
+      background-color: #bfd9d6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px;
+      gap: 6px;
     }
 
-    .right { 
-      background-color: #fff3b1; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      justify-content: flex-start; 
-      padding: 10px; 
-      gap: 6px; 
+    .right {
+      background-color: #fff3b1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px;
+      gap: 6px;
     }
 
     /* centrado vertical solo en botones de RD */
@@ -136,24 +106,24 @@
     }
 
     /* Título */
-    h2 { 
-      margin-bottom: 6px; 
-      color: #692100; 
-      text-align: center; 
+    h2 {
+      margin-bottom: 6px;
+      color: #692100;
+      text-align: center;
     }
 
     /* Botones */
-    .link-btn { 
-      font-size: 15px; 
-      color: #692100; 
-      text-decoration: none; 
-      cursor: pointer; 
-      background: none; 
-      border: none; 
-      text-align: center; 
-      font-family: 'Bogart', Arial, sans-serif; 
-      width: 100%; 
-      margin: 1px 0; 
+    .link-btn {
+      font-size: 15px;
+      color: #692100;
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-align: center;
+      font-family: 'Bogart', Arial, sans-serif;
+      width: 100%;
+      margin: 1px 0;
     }
     .link-btn:hover { text-decoration: underline; }
 
@@ -185,7 +155,7 @@
 
     <div class="section3">
       <div class="left">
-        <h2>Colombias</h2>
+        <h2>Colombia</h2>
         <button class="link-btn">Ventas Diarias</button>
         <button class="link-btn">Ventas Totales</button>
         <button class="link-btn">Informes Contables</button>
@@ -200,21 +170,8 @@
       </div>
     </div>
 
-    <!-- 🔹 Footer con logo izq + imagen der intacta + redes sociales debajo -->
     <div class="section4">
-      <!-- Logo izquierdo -->
-      <img src="logo.png" alt="Logo" class="logo">
-
-      <!-- Imagen derecha intacta + redes debajo -->
-      <div class="right-footer">
-        <img src="otrocompleto.png" alt="Imagen derecha" class="main">
-        <div class="social-icons">
-          <a href="https://facebook.com/goyurt" target="_blank"><img src="2.png" alt="Facebook"></a>
-          <a href="https://instagram.com/goyurt" target="_blank"><img src="3.png" alt="Instagram"></a>
-          <a href="https://linkedin.com/company/goyurt" target="_blank"><img src="4.png" alt="LinkedIn"></a>
-          <a href="https://wa.me/573001112233" target="_blank"><img src="Whats.png" alt="WhatsApp"></a>
-        </div>
-      </div>
+      <img src="logo.png" alt="Logo">
     </div>
   </div>
 </body>
