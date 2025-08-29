@@ -20,13 +20,13 @@
     html, body {
       height: 100%;
       width: 100%;
-      overflow-x: hidden; /* 👈 evita corte de section4 */
+      overflow: hidden; /* 🚫 evita scroll */
       font-family: 'Bogart', Arial, sans-serif;
     }
     .container {
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: 100vh; /* 👈 ocupa toda la pantalla exacta */
       width: 100%;
     }
 
@@ -36,6 +36,7 @@
       background: url("bannerp.jpg") no-repeat right center;
       background-size: auto 100%;
       position: relative;
+      min-height: 0;
     }
     .section1 img.overlay {
       position: absolute;
@@ -51,10 +52,11 @@
       flex: 0 0 22.22%;
       background: url("video.gif") no-repeat center center;
       background-size: cover;
+      min-height: 0;
     }
     .section3 {
       display: flex;
-      flex: 0 0 39.53%;
+      flex: 0 0 29.63%; /* ajuste PC para que sume 100 */
       overflow: hidden;
       min-height: 0;
     }
@@ -63,15 +65,14 @@
       flex: 0 0 7.41%;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      padding-left: 10px;
-      padding-bottom: 2px;
-      position: relative;
+      align-items: center;
+      padding: 0 10px; /* ✅ sin padding extra abajo */
+      min-height: 0;
     }
 
     /* Imagen del logo en section4 */
     .section4 img {
-      height: 8vh;
+      height: 70%;
       width: auto;
       display: block;
     }
@@ -143,14 +144,14 @@
       }
     }
 
-    /* Ajustes móvil */
+    /* Ajustes móvil → 13% + 22% + 59% + 6% = 100% */
     @media (max-width: 768px) {
       .section1 {
         background: none;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex: 0 0 13% !important; /* 👈 más pequeño */
+        flex: 0 0 13% !important;
       }
       .section1 img.overlay {
         position: relative;
@@ -162,7 +163,7 @@
         flex: 0 0 22% !important;
       }
       .section3 {
-        flex: 0 0 59% !important; /* 👈 botones más grandes */
+        flex: 0 0 59% !important;
       }
       .section4 {
         flex: 0 0 6% !important;
@@ -200,7 +201,7 @@
       padding-right: 10px;
     }
     .floating-icons img {
-      height: 30%;
+      height: 70%;
       width: auto;
       object-fit: contain;
       cursor: pointer;
@@ -242,3 +243,4 @@
   </div>
 </body>
 </html>
+
