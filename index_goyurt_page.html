@@ -162,7 +162,6 @@
 
     /* ---------------- RESPONSIVE ---------------- */
     @media (max-width: 768px) {
-      /* proporciones móvil ajustadas: 13% + 22% + 55% + 10% = 100% */
       .section1 {
         background: none;
         display: flex;
@@ -180,10 +179,13 @@
         flex: 0 0 22% !important;
       }
       .section3 {
-        flex: 0 0 55% !important;  /* reducido */
+        flex: auto;          /* ocupa el espacio sobrante */
+        flex-shrink: 1;      /* se reduce si es necesario */
+        min-height: 0;       /* evita desbordar */
       }
       .section4 {
-        flex: 0 0 10% !important;  /* aumentado */
+        flex: 0 0 10% !important; /* fijo para que siempre se vea */
+        flex-shrink: 0;
       }
       .section4 img {
         height: 70%;
