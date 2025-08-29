@@ -20,7 +20,7 @@
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden;
+      overflow-x: hidden; /* 👈 evita corte de section4 */
       font-family: 'Bogart', Arial, sans-serif;
     }
     .container {
@@ -29,9 +29,10 @@
       height: 100%;
       width: 100%;
     }
+
     /* 🔹 Banner PC */
     .section1 {
-      flex: 0 0 40.74%; /* actualizado */
+      flex: 0 0 40.74%;
       background: url("bannerp.jpg") no-repeat right center;
       background-size: auto 100%;
       position: relative;
@@ -40,25 +41,11 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%; /* PC */
+      height: 60%;
       object-fit: contain;
       pointer-events: none;
     }
-    /* 🔹 Ajuste SOLO móvil */
-    @media (max-width: 768px) {
-      .section1 {
-        background: none; /* elimina bannercel */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .section1 img.overlay {
-        position: relative;
-        height: 80%; /* más grande en móvil */
-        width: auto;
-        margin: 0 auto;
-      }
-    }
+
     /* Bloques principales */
     .section2 {
       flex: 0 0 22.22%;
@@ -67,7 +54,7 @@
     }
     .section3 {
       display: flex;
-      flex: 0 0 39.53%; /* actualizado */
+      flex: 0 0 39.53%;
       overflow: hidden;
       min-height: 0;
     }
@@ -81,12 +68,14 @@
       padding-bottom: 2px;
       position: relative;
     }
+
     /* Imagen del logo en section4 */
     .section4 img {
       height: 8vh;
       width: auto;
       display: block;
     }
+
     /* División de la sección 3 */
     .left, .right {
       flex: 1;
@@ -110,6 +99,7 @@
       padding: 10px;
       gap: 6px;
     }
+
     /* centrado vertical solo en botones de RD */
     .right .link-btn:first-of-type {
       margin-top: auto;
@@ -117,12 +107,14 @@
     .right .link-btn:last-of-type {
       margin-bottom: auto;
     }
+
     /* Título */
     h2 {
       margin-bottom: 6px;
       color: #692100;
       text-align: center;
     }
+
     /* Botones */
     .link-btn {
       font-size: 15px;
@@ -139,6 +131,7 @@
     .link-btn:hover {
       text-decoration: underline;
     }
+
     /* Pantallas grandes */
     @media (min-width: 768px) {
       .row {
@@ -149,12 +142,35 @@
         margin: 0;
       }
     }
+
     /* Ajustes móvil */
-    @media (max-width: 480px) {
-      .left {
-        gap: 2.2px;
+    @media (max-width: 768px) {
+      .section1 {
+        background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 20% !important; /* 👈 más pequeño */
       }
-      .right {
+      .section1 img.overlay {
+        position: relative;
+        height: 80%;
+        width: auto;
+        margin: 0 auto;
+      }
+      .section2 {
+        flex: 0 0 22% !important;
+      }
+      .section3 {
+        flex: 0 0 60% !important; /* 👈 botones más grandes */
+      }
+      .section4 {
+        flex: 0 0 7% !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .left, .right {
         gap: 2.2px;
       }
       .link-btn {
@@ -172,6 +188,7 @@
         font-size: 14px;
       }
     }
+
     /* 🔹 Imágenes flotantes dentro de section4 */
     .floating-icons {
       display: flex;
@@ -223,8 +240,5 @@
       </div>
     </div>
   </div>
-</body>
-</html>
-
 </body>
 </html>
