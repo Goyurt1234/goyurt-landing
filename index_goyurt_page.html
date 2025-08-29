@@ -12,23 +12,18 @@
       font-weight: normal;
       font-style: normal;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html, body {
       height: 100%;
       width: 100%;
       overflow: hidden;
       font-family: 'Bogart', Arial, sans-serif;
     }
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-    }
+
+    .container { display: flex; flex-direction: column; height: 100%; width: 100%; }
+
     /* 🔹 Banner PC */
     .section1 {
       flex: 0 0 40.74%;
@@ -36,14 +31,16 @@
       background-size: auto 100%;
       position: relative;
     }
+
     .section1 img.overlay {
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%; /* PC */
+      height: 60%;   /* PC */
       object-fit: contain;
       pointer-events: none;
     }
+
     /* 🔹 Banner móvil */
     @media (max-width: 768px) {
       .section1 {
@@ -54,42 +51,32 @@
         top: 0;
         left: 0;
         right: auto;
-        height: 30%; /* móvil */
+        height: 30%;   /* móvil */
       }
     }
+
     /* Bloques principales */
-    .section2 {
-      flex: 0 0 22.22%;
-      background: url("video.gif") no-repeat center center;
-      background-size: cover;
-    }
-    .section3 {
-      display: flex;
-      flex: 0 0 29.63%;
-      overflow: hidden;
-      min-height: 0;
-    }
+    .section2 { flex: 0 0 22.22%; background: url("video.gif") no-repeat center center; background-size: cover; }
+    .section3 { display: flex; flex: 0 0 29.63%; overflow: hidden; min-height: 0; }
     .section4 {
       background-color: #fffae8;
       flex: 0 0 7.41%;
       display: flex;
-      justify-content: space-between; /* izquierda y derecha */
-      align-items: flex-end;
+      justify-content: flex-start;  /* pegado a la izquierda */
+      align-items: flex-end;        /* pegado abajo */
       padding-left: 10px;
-      padding-bottom: 2px;
-      position: relative;
+      padding-bottom: 2px;          /* pequeño margen abajo */
     }
+
     /* Imagen del logo en section4 */
     .section4 img {
-      height: 8vh;
-      width: auto;
-      display: block;
-    }
+  height: 8vh;   /* 5% de la altura de la ventana */
+  width: auto;   /* mantiene proporción */
+  display: block;
+}
     /* División de la sección 3 */
-    .left, .right {
-      flex: 1;
-      min-height: 0;
-    }
+    .left, .right { flex: 1; min-height: 0; }
+
     .left {
       background-color: #bfd9d6;
       display: flex;
@@ -99,6 +86,7 @@
       padding: 10px;
       gap: 6px;
     }
+
     .right {
       background-color: #fff3b1;
       display: flex;
@@ -108,6 +96,7 @@
       padding: 10px;
       gap: 6px;
     }
+
     /* centrado vertical solo en botones de RD */
     .right .link-btn:first-of-type {
       margin-top: auto;
@@ -115,12 +104,14 @@
     .right .link-btn:last-of-type {
       margin-bottom: auto;
     }
+
     /* Título */
     h2 {
       margin-bottom: 6px;
       color: #692100;
       text-align: center;
     }
+
     /* Botones */
     .link-btn {
       font-size: 15px;
@@ -134,57 +125,24 @@
       width: 100%;
       margin: 1px 0;
     }
-    .link-btn:hover {
-      text-decoration: underline;
-    }
+    .link-btn:hover { text-decoration: underline; }
+
     /* Pantallas grandes */
     @media (min-width: 768px) {
-      .row {
-        flex-wrap: nowrap;
-      }
-      .link-btn {
-        width: auto;
-        margin: 0;
-      }
+      .row { flex-wrap: nowrap; }
+      .link-btn { width: auto; margin: 0; }
     }
+
     /* Ajustes móvil */
     @media (max-width: 480px) {
-      .left {
-        gap: 2.2px;
-      }
-      .right {
-        gap: 2.2px;
-      }
-      .link-btn {
-        font-size: 12px;
-      }
-      h2 {
-        font-size: 18px;
-      }
+      .left { gap: 2.2px; }
+      .right { gap: 2.2px; }
+      .link-btn { font-size: 12px; }
+      h2 { font-size: 18px; }
     }
     @media (max-width: 360px) {
-      .link-btn {
-        font-size: 12px;
-      }
-      h2 {
-        font-size: 14px;
-      }
-    }
-    /* 🔹 Imágenes flotantes dentro de section4 */
-    .floating-icons {
-      display: flex;
-      flex-direction: row; /* horizontal */
-      gap: 20px; /* espacio entre logos */
-      height: 100%; /* ocupar toda la altura de section4 */
-      justify-content: center; /* centrado horizontal */
-      align-items: center; /* centrado vertical */
-      padding-right: 10px;
-    }
-    .floating-icons img {
-      height: 30%; /* 🔹 ocupan el 50% de la altura del contenedor */
-      width: auto;
-      object-fit: contain;
-      cursor: pointer;
+      .link-btn { font-size: 12px; }
+      h2 { font-size: 14px; }
     }
   </style>
 </head>
@@ -194,32 +152,26 @@
       <img src="otrocompleto.png" alt="Overlay" class="overlay">
     </div>
     <div class="section2"></div>
+
     <div class="section3">
       <div class="left">
-        <h2>Colombia7</h2>
         <h2>Colombia</h2>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informe-diario-goyurt/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informehb-acumulado/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/contables-hb/p%C3%A1gina-principal', '_blank')">Informes Contables</button>
-        <button class="link-btn" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiYjc0MTIzNzctYmRhOC00ZGY1LTlkYjItZDEwYmYyZDRjZjczIiwidCI6IjNiNzgxNjRmLWEzOTUtNGQwOC04NDY1LTYwNzJlYmNjM2M4NyIsImMiOjR9', '_blank')">Dash Domicilios</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/revenue/p%C3%A1gina-principal', '_blank')">Revenue</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/cxc/p%C3%A1gina-principal', '_blank')">Cuentas por Cobrar</button>
+        <button class="link-btn">Ventas Diarias</button>
+        <button class="link-btn">Ventas Totales</button>
+        <button class="link-btn">Informes Contables</button>
+        <button class="link-btn">Dash Domicilios</button>
+        <button class="link-btn">Revenue</button>
+        <button class="link-btn">Cuentas por Cobrar</button>
       </div>
       <div class="right">
         <h2>República Dominicana</h2>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/diariordhb/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/rddario/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
+        <button class="link-btn">Ventas Diarias</button>
+        <button class="link-btn">Ventas Acumuladas</button>
       </div>
     </div>
-    <!-- 🔹 Última sección con logos -->
+
     <div class="section4">
       <img src="logo.png" alt="Logo">
-      <div class="floating-icons">
-        <img src="j1.jpg" alt="Icono 1" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
-        <img src="j2.jpg" alt="Icono 2" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
-        <img src="j3.jpg" alt="Icono 3" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
-        <img src="j4.jpg" alt="Icono 4" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
-      </div>
     </div>
   </div>
 </body>
