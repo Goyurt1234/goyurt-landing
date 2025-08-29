@@ -12,26 +12,27 @@
       font-weight: normal;
       font-style: normal;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden; /* 🚫 evita scroll */
+      overflow: hidden; /* 🚫 sin scroll en toda la página */
       font-family: 'Bogart', Arial, sans-serif;
     }
+
     .container {
       display: flex;
       flex-direction: column;
-      height: 100vh; /* 👈 ocupa toda la pantalla exacta */
+      height: 100vh;     /* ocupa toda la pantalla */
+      height: 100dvh;    /* mejor soporte en móviles modernos */
       width: 100%;
     }
 
-    /* 🔹 Banner PC */
-    .section1 {
+    /* ───────────────── PC (suma 100%) ───────────────── */
+    .section1 { /* 40.74% */
       flex: 0 0 40.74%;
       background: url("bannerp.jpg") no-repeat right center;
       background-size: auto 100%;
@@ -42,48 +43,46 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%;
+      height: 60%;           /* relativo al contenedor, no vh */
       object-fit: contain;
       pointer-events: none;
     }
 
-    /* Bloques principales */
-    .section2 {
+    .section2 { /* 22.22% */
       flex: 0 0 22.22%;
       background: url("video.gif") no-repeat center center;
       background-size: cover;
       min-height: 0;
     }
-    .section3 {
+
+    .section3 { /* 29.63% → ajustado para que PC sume 100% */
       display: flex;
-      flex: 0 0 29.63%; /* ajuste PC para que sume 100 */
-      overflow: hidden;
+      flex: 0 0 29.63%;
+      overflow: hidden;      /* evita que empuje al footer */
       min-height: 0;
     }
-    .section4 {
+
+    .section4 { /* 7.41% */
       background-color: #fffae8;
       flex: 0 0 7.41%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 0 10px; /* ✅ sin padding extra abajo */
+      align-items: center;   /* centrado vertical del logo e iconos */
+      padding: 0 10px;       /* solo horizontal para no sumar alto */
       min-height: 0;
     }
 
-    /* Imagen del logo en section4 */
-    .section4 img {
+    /* Logo de la barra inferior: usa % del contenedor, no vh */
+    .section4 > img {
       height: 70%;
       width: auto;
       display: block;
     }
 
-    /* División de la sección 3 */
+    /* División de la sección 3 (dos columnas) */
     .left, .right {
       flex: 1;
       min-height: 0;
-    }
-    .left {
-      background-color: #bfd9d6;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -91,32 +90,19 @@
       padding: 10px;
       gap: 6px;
     }
-    .right {
-      background-color: #fff3b1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 10px;
-      gap: 6px;
-    }
+    .left  { background-color: #bfd9d6; }
+    .right { background-color: #fff3b1; }
 
-    /* centrado vertical solo en botones de RD */
-    .right .link-btn:first-of-type {
-      margin-top: auto;
-    }
-    .right .link-btn:last-of-type {
-      margin-bottom: auto;
-    }
+    /* Centrado suave de los botones de RD */
+    .right .link-btn:first-of-type { margin-top: auto; }
+    .right .link-btn:last-of-type  { margin-bottom: auto; }
 
-    /* Título */
+    /* Títulos y botones */
     h2 {
       margin-bottom: 6px;
       color: #692100;
       text-align: center;
     }
-
-    /* Botones */
     .link-btn {
       font-size: 15px;
       color: #692100;
@@ -129,68 +115,9 @@
       width: 100%;
       margin: 1px 0;
     }
-    .link-btn:hover {
-      text-decoration: underline;
-    }
+    .link-btn:hover { text-decoration: underline; }
 
-    /* Pantallas grandes */
-    @media (min-width: 768px) {
-      .row {
-        flex-wrap: nowrap;
-      }
-      .link-btn {
-        width: auto;
-        margin: 0;
-      }
-    }
-
-    /* Ajustes móvil → 13% + 22% + 59% + 6% = 100% */
-    @media (max-width: 768px) {
-      .section1 {
-        background: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 0 0 13% !important;
-      }
-      .section1 img.overlay {
-        position: relative;
-        height: 80%;
-        width: auto;
-        margin: 0 auto;
-      }
-      .section2 {
-        flex: 0 0 22% !important;
-      }
-      .section3 {
-        flex: 0 0 59% !important;
-      }
-      .section4 {
-        flex: 0 0 6% !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .left, .right {
-        gap: 2.2px;
-      }
-      .link-btn {
-        font-size: 12px;
-      }
-      h2 {
-        font-size: 18px;
-      }
-    }
-    @media (max-width: 360px) {
-      .link-btn {
-        font-size: 12px;
-      }
-      h2 {
-        font-size: 14px;
-      }
-    }
-
-    /* 🔹 Imágenes flotantes dentro de section4 */
+    /* Iconos flotantes del footer */
     .floating-icons {
       display: flex;
       flex-direction: row;
@@ -198,13 +125,57 @@
       height: 100%;
       justify-content: center;
       align-items: center;
-      padding-right: 10px;
+      padding-right: 10px; /* solo horizontal */
     }
     .floating-icons img {
-      height: 70%;
+      height: 70%;           /* relativo al alto del footer */
       width: auto;
       object-fit: contain;
       cursor: pointer;
+      display: block;
+    }
+
+    /* ───────────────── MÓVIL (suma 100%: 13 + 22 + 59 + 6) ───────────────── */
+    @media (max-width: 768px) {
+      .section1 {
+        background: none;              /* sin banner de fondo en móvil */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 13% !important;      /* 13% */
+      }
+      .section1 img.overlay {
+        position: relative;
+        height: 80%;                    /* visible pero contenido */
+        width: auto;
+        margin: 0 auto;
+      }
+      .section2 {
+        flex: 0 0 22% !important;       /* 22% */
+        background-size: cover;
+      }
+      .section3 {
+        flex: 0 0 59% !important;       /* 59% */
+        overflow: hidden;                /* no empuja al footer */
+      }
+      .section4 {
+        flex: 0 0 6% !important;        /* 6% fijo, siempre visible */
+      }
+
+      /* Ajustes tipográficos finos para no desbordar */
+      .left, .right { gap: 4px; padding: 8px; }
+      .link-btn { font-size: 13px; }
+      h2 { font-size: 16px; margin-bottom: 4px; }
+
+      /* Iconos del footer en móvil: mantén proporción sin cortar */
+      .section4 > img { height: 65%; }
+      .floating-icons img { height: 65%; }
+    }
+
+    /* Extra pequeño */
+    @media (max-width: 360px) {
+      .link-btn { font-size: 12px; }
+      h2 { font-size: 14px; }
     }
   </style>
 </head>
@@ -213,10 +184,12 @@
     <div class="section1">
       <img src="otrocompleto.png" alt="Overlay" class="overlay">
     </div>
+
     <div class="section2"></div>
+
     <div class="section3">
       <div class="left">
-        <h2>Colombias</h2>
+        <h2>Colombia</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informe-diario-goyurt/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informehb-acumulado/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/contables-hb/p%C3%A1gina-principal', '_blank')">Informes Contables</button>
@@ -224,23 +197,24 @@
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/revenue/p%C3%A1gina-principal', '_blank')">Revenue</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/cxc/p%C3%A1gina-principal', '_blank')">Cuentas por Cobrar</button>
       </div>
+
       <div class="right">
         <h2>República Dominicana</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/diariordhb/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/rddario/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
       </div>
     </div>
-    <!-- 🔹 Última sección con logos -->
+
+    <!-- Footer / Logos -->
     <div class="section4">
-      <img src="logo.png" alt="Logo">
+      <img src="logo.png" alt="Logo Goyurt">
       <div class="floating-icons">
-        <img src="j1.jpg" alt="Icono 1" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
-        <img src="j2.jpg" alt="Icono 2" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
-        <img src="j3.jpg" alt="Icono 3" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
-        <img src="j4.jpg" alt="Icono 4" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
+        <img src="j1.jpg" alt="Instagram" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
+        <img src="j2.jpg" alt="WhatsApp"  onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
+        <img src="j3.jpg" alt="LinkedIn"  onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
+        <img src="j4.jpg" alt="Facebook"  onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
       </div>
     </div>
   </div>
 </body>
 </html>
-
