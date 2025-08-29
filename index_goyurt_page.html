@@ -13,76 +13,67 @@
       font-style: normal;
     }
 
-    /* Reset básico */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden; /* 🚫 sin scroll en toda la página */
+      overflow: hidden; /* evita scroll */
       font-family: 'Bogart', Arial, sans-serif;
     }
 
     .container {
       display: flex;
       flex-direction: column;
-      height: 100vh;     /* ocupa toda la pantalla */
-      height: 100dvh;    /* mejor soporte en móviles modernos */
+      height: 100vh; /* pantalla completa */
       width: 100%;
     }
 
-    /* ───────────────── PC (suma 100%) ───────────────── */
-    .section1 { /* 40.74% */
+    /* ---------------- SECCIÓN 1 (BANNER) ---------------- */
+    .section1 {
       flex: 0 0 40.74%;
       background: url("bannerp.jpg") no-repeat right center;
       background-size: auto 100%;
       position: relative;
       min-height: 0;
     }
+
     .section1 img.overlay {
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%;           /* relativo al contenedor, no vh */
+      height: 60%; /* PC */
       object-fit: contain;
       pointer-events: none;
     }
 
-    .section2 { /* 22.22% */
+    /* ---------------- SECCIÓN 2 (GIF) ---------------- */
+    .section2 {
       flex: 0 0 22.22%;
       background: url("video.gif") no-repeat center center;
       background-size: cover;
       min-height: 0;
     }
 
-    .section3 { /* 29.63% → ajustado para que PC sume 100% */
+    /* ---------------- SECCIÓN 3 (BOTONES) ---------------- */
+    .section3 {
       display: flex;
       flex: 0 0 29.63%;
-      overflow: hidden;      /* evita que empuje al footer */
+      overflow: hidden;
       min-height: 0;
     }
 
-    .section4 { /* 7.41% */
-      background-color: #fffae8;
-      flex: 0 0 7.41%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;   /* centrado vertical del logo e iconos */
-      padding: 0 10px;       /* solo horizontal para no sumar alto */
-      min-height: 0;
-    }
-
-    /* Logo de la barra inferior: usa % del contenedor, no vh */
-    .section4 > img {
-      height: 70%;
-      width: auto;
-      display: block;
-    }
-
-    /* División de la sección 3 (dos columnas) */
     .left, .right {
       flex: 1;
       min-height: 0;
+    }
+
+    .left {
+      background-color: #bfd9d6;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -90,19 +81,50 @@
       padding: 10px;
       gap: 6px;
     }
-    .left  { background-color: #bfd9d6; }
-    .right { background-color: #fff3b1; }
 
-    /* Centrado suave de los botones de RD */
-    .right .link-btn:first-of-type { margin-top: auto; }
-    .right .link-btn:last-of-type  { margin-bottom: auto; }
+    .right {
+      background-color: #fff3b1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px;
+      gap: 6px;
+    }
 
-    /* Títulos y botones */
+    /* centrado vertical solo en botones RD */
+    .right .link-btn:first-of-type {
+      margin-top: auto;
+    }
+    .right .link-btn:last-of-type {
+      margin-bottom: auto;
+    }
+
+    /* ---------------- SECCIÓN 4 (LOGOS Y REDES) ---------------- */
+    .section4 {
+      background-color: #fffae8;
+      flex: 0 0 7.41%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      min-height: 0;
+    }
+
+    .section4 img {
+      height: 8vh; /* Logo */
+      width: auto;
+      display: block;
+    }
+
+    /* ---------------- TEXTOS ---------------- */
     h2 {
       margin-bottom: 6px;
       color: #692100;
       text-align: center;
     }
+
+    /* ---------------- BOTONES ---------------- */
     .link-btn {
       font-size: 15px;
       color: #692100;
@@ -115,9 +137,12 @@
       width: 100%;
       margin: 1px 0;
     }
-    .link-btn:hover { text-decoration: underline; }
 
-    /* Iconos flotantes del footer */
+    .link-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------------- ÍCONOS REDES (PC STYLE SIEMPRE) ---------------- */
     .floating-icons {
       display: flex;
       flex-direction: row;
@@ -125,58 +150,67 @@
       height: 100%;
       justify-content: center;
       align-items: center;
-      padding-right: 10px; /* solo horizontal */
+      padding-right: 10px;
     }
+
     .floating-icons img {
-      height: 70%;           /* relativo al alto del footer */
+      height: 30%; /* 👈 siempre estilo PC */
       width: auto;
       object-fit: contain;
       cursor: pointer;
-      display: block;
     }
 
-    /* ───────────────── MÓVIL (suma 100%: 13 + 22 + 59 + 6) ───────────────── */
+    /* ---------------- RESPONSIVE ---------------- */
     @media (max-width: 768px) {
+      /* proporciones móvil: 13% + 22% + 59% + 6% */
       .section1 {
-        background: none;              /* sin banner de fondo en móvil */
+        background: none;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex: 0 0 13% !important;      /* 13% */
+        flex: 0 0 13% !important;
       }
       .section1 img.overlay {
         position: relative;
-        height: 80%;                    /* visible pero contenido */
+        height: 80%;
         width: auto;
         margin: 0 auto;
       }
       .section2 {
-        flex: 0 0 22% !important;       /* 22% */
-        background-size: cover;
+        flex: 0 0 22% !important;
       }
       .section3 {
-        flex: 0 0 59% !important;       /* 59% */
-        overflow: hidden;                /* no empuja al footer */
+        flex: 0 0 59% !important;
       }
       .section4 {
-        flex: 0 0 6% !important;        /* 6% fijo, siempre visible */
+        flex: 0 0 6% !important;
       }
-
-      /* Ajustes tipográficos finos para no desbordar */
-      .left, .right { gap: 4px; padding: 8px; }
-      .link-btn { font-size: 13px; }
-      h2 { font-size: 16px; margin-bottom: 4px; }
-
-      /* Iconos del footer en móvil: mantén proporción sin cortar */
-      .section4 > img { height: 65%; }
-      .floating-icons img { height: 65%; }
+      .section4 img {
+        height: 70%; /* logo en móvil más chico */
+      }
     }
 
-    /* Extra pequeño */
+    @media (max-width: 480px) {
+      .left, .right {
+        gap: 2.2px;
+      }
+      .link-btn {
+        font-size: 12px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+    }
+
     @media (max-width: 360px) {
-      .link-btn { font-size: 12px; }
-      h2 { font-size: 14px; }
+      .link-btn {
+        font-size: 12px;
+      }
+      h2 {
+        font-size: 14px;
+      }
     }
+
   </style>
 </head>
 <body>
@@ -184,9 +218,7 @@
     <div class="section1">
       <img src="otrocompleto.png" alt="Overlay" class="overlay">
     </div>
-
     <div class="section2"></div>
-
     <div class="section3">
       <div class="left">
         <h2>Colombia</h2>
@@ -197,22 +229,19 @@
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/revenue/p%C3%A1gina-principal', '_blank')">Revenue</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/cxc/p%C3%A1gina-principal', '_blank')">Cuentas por Cobrar</button>
       </div>
-
       <div class="right">
         <h2>República Dominicana</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/diariordhb/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/rddario/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
       </div>
     </div>
-
-    <!-- Footer / Logos -->
     <div class="section4">
-      <img src="logo.png" alt="Logo Goyurt">
+      <img src="logo.png" alt="Logo">
       <div class="floating-icons">
         <img src="j1.jpg" alt="Instagram" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
-        <img src="j2.jpg" alt="WhatsApp"  onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
-        <img src="j3.jpg" alt="LinkedIn"  onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
-        <img src="j4.jpg" alt="Facebook"  onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
+        <img src="j2.jpg" alt="WhatsApp" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
+        <img src="j3.jpg" alt="LinkedIn" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
+        <img src="j4.jpg" alt="Facebook" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
       </div>
     </div>
   </div>
