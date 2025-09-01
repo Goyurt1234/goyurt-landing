@@ -22,6 +22,7 @@
       width: 100%;
       overflow: hidden;
       font-family: 'Bogart', Arial, sans-serif;
+      background-color: #fffae8;  /* 🔹 Fondo general */
     }
     .container {
       display: flex;
@@ -36,7 +37,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: none;   /* quité el fondo que estiraba */
+      background-color: #fffae8;  /* 🔹 fondo */
     }
     .section1 img.overlay {
       width: auto;
@@ -52,12 +53,14 @@
       flex: 0 0 22.22%; /* fijo */
       background: url("video.gif") no-repeat center center;
       background-size: cover;
+      background-color: #fffae8; /* 🔹 fallback */
     }
     .section3 {
       flex: 1; /* absorbe el sobrante dinámicamente */
       display: flex;
       overflow: hidden;
       min-height: 0;
+      background-color: #fffae8; /* 🔹 fondo */
     }
     .section4 {
       background-color: #fffae8;
@@ -116,7 +119,7 @@
     .link-btn {
       font-size: 15px;
       color: #692100;
-      background: #fff;
+      background: #fffae8; /* 🔹 fondo de botones */
       border: 2px solid #692100;
       border-radius: 20px;
       padding: 8px 14px;
@@ -228,6 +231,7 @@
   </div>
 </body>
 </html>
+
 
 </body>
 </html>
