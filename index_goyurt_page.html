@@ -111,7 +111,8 @@
       min-height: 0;
     }
 
-    .section4 img {
+    /* Logo principal */
+    .section4 > img {
       height: 8vh; /* Logo */
       width: auto;
       display: block;
@@ -142,7 +143,7 @@
       text-decoration: underline;
     }
 
-    /* ---------------- ÍCONOS REDES (PC STYLE SIEMPRE) ---------------- */
+    /* ---------------- ÍCONOS REDES (MISMO ESTILO PC Y CEL) ---------------- */
     .floating-icons {
       display: flex;
       flex-direction: row;
@@ -154,10 +155,15 @@
     }
 
     .floating-icons img {
-      height: 30%; /* 👈 siempre estilo PC */
-      width: auto;
+      height: 40px;   /* 👈 fijo en píxeles para que sea igual en PC y móvil */
+      width: 40px;
       object-fit: contain;
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .floating-icons img:hover {
+      transform: scale(1.1);
     }
 
     /* ---------------- RESPONSIVE ---------------- */
@@ -187,8 +193,8 @@
         flex: 0 0 10% !important; /* fijo para que siempre se vea */
         flex-shrink: 0;
       }
-      .section4 img {
-        height: 70%;
+      .section4 > img {
+        height: 70%;  /* 👈 solo el logo cambia, los íconos NO */
       }
     }
 
