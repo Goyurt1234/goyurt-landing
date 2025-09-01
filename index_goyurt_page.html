@@ -12,28 +12,25 @@
       font-weight: normal;
       font-style: normal;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden; /* evita scroll */
+      overflow: hidden; /* 🚫 evita scroll */
       font-family: 'Bogart', Arial, sans-serif;
     }
-
     .container {
       display: flex;
       flex-direction: column;
-      height: 100vh; /* pantalla completa */
+      height: 100vh; /* 👈 ocupa toda la pantalla exacta */
       width: 100%;
     }
 
-    /* ---------------- SECCIÓN 1 (BANNER) ---------------- */
+    /* 🔹 Banner PC */
     .section1 {
       flex: 0 0 40.74%;
       background: url("bannerp.jpg") no-repeat right center;
@@ -41,37 +38,50 @@
       position: relative;
       min-height: 0;
     }
-
     .section1 img.overlay {
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%; /* PC */
+      height: 60%;
       object-fit: contain;
       pointer-events: none;
     }
 
-    /* ---------------- SECCIÓN 2 (GIF) ---------------- */
+    /* Bloques principales */
     .section2 {
       flex: 0 0 22.22%;
       background: url("video.gif") no-repeat center center;
       background-size: cover;
       min-height: 0;
     }
-
-    /* ---------------- SECCIÓN 3 (BOTONES) ---------------- */
     .section3 {
       display: flex;
-      flex: 0 0 29.63%;
+      flex: 0 0 29.63%; /* ajuste PC para que sume 100 */
       overflow: hidden;
       min-height: 0;
     }
+    .section4 {
+      background-color: #fffae8;
+      flex: 0 0 7.41%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px; /* ✅ sin padding extra abajo */
+      min-height: 0;
+    }
 
+    /* Imagen del logo en section4 */
+    .section4 img {
+      height: 70%;
+      width: auto;
+      display: block;
+    }
+
+    /* División de la sección 3 */
     .left, .right {
       flex: 1;
       min-height: 0;
     }
-
     .left {
       background-color: #bfd9d6;
       display: flex;
@@ -81,7 +91,6 @@
       padding: 10px;
       gap: 6px;
     }
-
     .right {
       background-color: #fff3b1;
       display: flex;
@@ -92,7 +101,7 @@
       gap: 6px;
     }
 
-    /* centrado vertical solo en botones RD */
+    /* centrado vertical solo en botones de RD */
     .right .link-btn:first-of-type {
       margin-top: auto;
     }
@@ -100,32 +109,14 @@
       margin-bottom: auto;
     }
 
-    /* ---------------- SECCIÓN 4 (LOGOS Y REDES) ---------------- */
-    .section4 {
-      background-color: #fffae8;
-      flex: 0 0 7.41%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
-      min-height: 0;
-    }
-
-    /* Logo principal */
-    .section4 > img {
-      height: 8vh; /* Logo */
-      width: auto;
-      display: block;
-    }
-
-    /* ---------------- TEXTOS ---------------- */
+    /* Título */
     h2 {
       margin-bottom: 6px;
       color: #692100;
       text-align: center;
     }
 
-    /* ---------------- BOTONES ---------------- */
+    /* Botones */
     .link-btn {
       font-size: 15px;
       color: #692100;
@@ -138,35 +129,22 @@
       width: 100%;
       margin: 1px 0;
     }
-
     .link-btn:hover {
       text-decoration: underline;
     }
 
-    /* ---------------- ÍCONOS REDES (MISMO ESTILO PC Y CEL) ---------------- */
-    .floating-icons {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      padding-right: 10px;
+    /* Pantallas grandes */
+    @media (min-width: 768px) {
+      .row {
+        flex-wrap: nowrap;
+      }
+      .link-btn {
+        width: auto;
+        margin: 0;
+      }
     }
 
-    .floating-icons img {
-      height: 40px;   /* 👈 fijo en píxeles para que sea igual en PC y móvil */
-      width: 40px;
-      object-fit: contain;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .floating-icons img:hover {
-      transform: scale(1.1);
-    }
-
-    /* ---------------- RESPONSIVE ---------------- */
+    /* Ajustes móvil → 13% + 22% + 59% + 6% = 100% */
     @media (max-width: 768px) {
       .section1 {
         background: none;
@@ -185,16 +163,10 @@
         flex: 0 0 22% !important;
       }
       .section3 {
-        flex: auto;          /* ocupa el espacio sobrante */
-        flex-shrink: 1;      /* se reduce si es necesario */
-        min-height: 0;       /* evita desbordar */
+        flex: 0 0 59% !important;
       }
       .section4 {
-        flex: 0 0 10% !important; /* fijo para que siempre se vea */
-        flex-shrink: 0;
-      }
-      .section4 > img {
-        height: 70%;  /* 👈 solo el logo cambia, los íconos NO */
+        flex: 0 0 6% !important;
       }
     }
 
@@ -209,7 +181,6 @@
         font-size: 18px;
       }
     }
-
     @media (max-width: 360px) {
       .link-btn {
         font-size: 12px;
@@ -219,6 +190,22 @@
       }
     }
 
+    /* 🔹 Imágenes flotantes dentro de section4 */
+    .floating-icons {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      padding-right: 10px;
+    }
+    .floating-icons img {
+      height: 70%;
+      width: auto;
+      object-fit: contain;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -229,7 +216,7 @@
     <div class="section2"></div>
     <div class="section3">
       <div class="left">
-        <h2>Colombia</h2>
+        <h2>Colombias</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informe-diario-goyurt/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informehb-acumulado/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/contables-hb/p%C3%A1gina-principal', '_blank')">Informes Contables</button>
@@ -243,13 +230,14 @@
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/rddario/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
       </div>
     </div>
+    <!-- 🔹 Última sección con logos -->
     <div class="section4">
       <img src="logo.png" alt="Logo">
       <div class="floating-icons">
-        <img src="j1.jpg" alt="Instagram" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
-        <img src="j2.jpg" alt="WhatsApp" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
-        <img src="j3.jpg" alt="LinkedIn" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
-        <img src="j4.jpg" alt="Facebook" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
+        <img src="j1.jpg" alt="Icono 1" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
+        <img src="j2.jpg" alt="Icono 2" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
+        <img src="j3.jpg" alt="Icono 3" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
+        <img src="j4.jpg" alt="Icono 4" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
       </div>
     </div>
   </div>
