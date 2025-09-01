@@ -31,7 +31,7 @@
     }
     /* 🔹 Banner PC */
     .section1 {
-      flex: 1 1 14.74%;
+      flex: 0 0 14.74%;  /* fijo */
       background: url("bannerp.jpg") no-repeat right center;
       background-size: auto 100%;
       position: relative;
@@ -48,21 +48,21 @@
 
     /* Bloques principales */
     .section2 {
-      flex: 0 0 22.22%;
+      flex: 0 0 22.22%; /* fijo */
       background: url("video.gif") no-repeat center center;
       background-size: cover;
     }
     .section3 {
+      flex: 1; /* absorbe el sobrante dinámicamente */
       display: flex;
-      flex: 0 0 55.63%;
       overflow: hidden;
       min-height: 0;
     }
     .section4 {
       background-color: #fffae8;
-      flex: 0 0 7.41%;
+      flex: 0 0 7.41%;  /* fijo */
       display: flex;
-      justify-content: space-between; /* izquierda y derecha */
+      justify-content: space-between;
       align-items: flex-end;
       padding-left: 10px;
       padding-bottom: 2px;
@@ -146,7 +146,7 @@
     /* 🔹 Ajustes SOLO móvil */
     @media (max-width: 768px) {
       .section1 {
-        background: none !important; /* quita bannercel */
+        background: none !important;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -229,4 +229,3 @@
   </div>
 </body>
 </html>
-
