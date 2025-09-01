@@ -20,43 +20,52 @@
     html, body {
       height: 100%;
       width: 100%;
-      overflow: hidden; /* 🚫 evita scroll */
+      overflow: hidden;
       font-family: 'Bogart', Arial, sans-serif;
     }
     .container {
       display: flex;
       flex-direction: column;
-      height: 100vh; /* 👈 ocupa toda la pantalla exacta */
+      height: 100%;
       width: 100%;
     }
-
     /* 🔹 Banner PC */
     .section1 {
       flex: 0 0 40.74%;
       background: url("bannerp.jpg") no-repeat right center;
       background-size: auto 100%;
       position: relative;
-      min-height: 0;
     }
     .section1 img.overlay {
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%;
+      height: 60%; /* PC */
       object-fit: contain;
       pointer-events: none;
     }
-
+    /* 🔹 Banner móvil */
+    @media (max-width: 768px) {
+      .section1 {
+        background: url("bannercel.jpg") no-repeat right center;
+        background-size: auto 100%;
+      }
+      .section1 img.overlay {
+        top: 0;
+        left: 0;
+        right: auto;
+        height: 30%; /* móvil */
+      }
+    }
     /* Bloques principales */
     .section2 {
       flex: 0 0 22.22%;
       background: url("video.gif") no-repeat center center;
       background-size: cover;
-      min-height: 0;
     }
     .section3 {
       display: flex;
-      flex: 0 0 29.63%; /* ajuste PC para que sume 100 */
+      flex: 0 0 29.63%;
       overflow: hidden;
       min-height: 0;
     }
@@ -64,19 +73,18 @@
       background-color: #fffae8;
       flex: 0 0 7.41%;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px; /* ✅ sin padding extra abajo */
-      min-height: 0;
+      justify-content: space-between; /* izquierda y derecha */
+      align-items: flex-end;
+      padding-left: 10px;
+      padding-bottom: 2px;
+      position: relative;
     }
-
     /* Imagen del logo en section4 */
     .section4 img {
-      height: 70%;
+      height: 8vh;
       width: auto;
       display: block;
     }
-
     /* División de la sección 3 */
     .left, .right {
       flex: 1;
@@ -100,7 +108,6 @@
       padding: 10px;
       gap: 6px;
     }
-
     /* centrado vertical solo en botones de RD */
     .right .link-btn:first-of-type {
       margin-top: auto;
@@ -108,14 +115,12 @@
     .right .link-btn:last-of-type {
       margin-bottom: auto;
     }
-
     /* Título */
     h2 {
       margin-bottom: 6px;
       color: #692100;
       text-align: center;
     }
-
     /* Botones */
     .link-btn {
       font-size: 15px;
@@ -132,7 +137,6 @@
     .link-btn:hover {
       text-decoration: underline;
     }
-
     /* Pantallas grandes */
     @media (min-width: 768px) {
       .row {
@@ -143,35 +147,12 @@
         margin: 0;
       }
     }
-
-    /* Ajustes móvil → 13% + 22% + 59% + 6% = 100% */
-    @media (max-width: 768px) {
-      .section1 {
-        background: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 0 0 13% !important;
-      }
-      .section1 img.overlay {
-        position: relative;
-        height: 80%;
-        width: auto;
-        margin: 0 auto;
-      }
-      .section2 {
-        flex: 0 0 22% !important;
-      }
-      .section3 {
-        flex: 0 0 59% !important;
-      }
-      .section4 {
-        flex: 0 0 6% !important;
-      }
-    }
-
+    /* Ajustes móvil */
     @media (max-width: 480px) {
-      .left, .right {
+      .left {
+        gap: 2.2px;
+      }
+      .right {
         gap: 2.2px;
       }
       .link-btn {
@@ -189,19 +170,18 @@
         font-size: 14px;
       }
     }
-
     /* 🔹 Imágenes flotantes dentro de section4 */
     .floating-icons {
       display: flex;
-      flex-direction: row;
-      gap: 20px;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
+      flex-direction: row; /* horizontal */
+      gap: 20px; /* espacio entre logos */
+      height: 100%; /* ocupar toda la altura de section4 */
+      justify-content: center; /* centrado horizontal */
+      align-items: center; /* centrado vertical */
       padding-right: 10px;
     }
     .floating-icons img {
-      height: 70%;
+      height: 30%; /* 🔹 ocupan el 50% de la altura del contenedor */
       width: auto;
       object-fit: contain;
       cursor: pointer;
@@ -216,7 +196,7 @@
     <div class="section2"></div>
     <div class="section3">
       <div class="left">
-        <h2>Colombias</h2>
+        <h2>Colombia</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informe-diario-goyurt/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informehb-acumulado/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/contables-hb/p%C3%A1gina-principal', '_blank')">Informes Contables</button>
