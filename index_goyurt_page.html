@@ -22,11 +22,11 @@
       font-family: 'Bogart', Arial, sans-serif;
     }
 
-    .container { 
-      display: flex; 
-      flex-direction: column; 
-      height: 100%; 
-      width: 100%; 
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
 
     /* 🔹 Banner PC */
@@ -41,7 +41,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 60%; /* PC */
+      height: 60%;   /* PC */
       object-fit: contain;
       pointer-events: none;
     }
@@ -56,7 +56,7 @@
         top: 0;
         left: 0;
         right: auto;
-        height: 30%; /* móvil */
+        height: 30%;   /* móvil */
       }
     }
 
@@ -78,10 +78,10 @@
       background-color: #fffae8;
       flex: 0 0 7.41%;
       display: flex;
-      justify-content: space-between; /* izquierda y derecha */
-      align-items: flex-end;
+      justify-content: space-between;  /* izquierda y derecha */
+      align-items: flex-end;          
       padding-left: 10px;
-      padding-bottom: 2px;
+      padding-bottom: 2px;            
       position: relative;
     }
 
@@ -93,10 +93,7 @@
     }
 
     /* División de la sección 3 */
-    .left, .right {
-      flex: 1;
-      min-height: 0;
-    }
+    .left, .right { flex: 1; min-height: 0; }
 
     .left {
       background-color: #bfd9d6;
@@ -119,8 +116,12 @@
     }
 
     /* centrado vertical solo en botones de RD */
-    .right .link-btn:first-of-type { margin-top: auto; }
-    .right .link-btn:last-of-type { margin-bottom: auto; }
+    .right .link-btn:first-of-type {
+      margin-top: auto;
+    }
+    .right .link-btn:last-of-type {
+      margin-bottom: auto;
+    }
 
     /* Título */
     h2 {
@@ -142,16 +143,12 @@
       width: 100%;
       margin: 1px 0;
     }
-
     .link-btn:hover { text-decoration: underline; }
 
     /* Pantallas grandes */
     @media (min-width: 768px) {
       .row { flex-wrap: nowrap; }
-      .link-btn {
-        width: auto;
-        margin: 0;
-      }
+      .link-btn { width: auto; margin: 0; }
     }
 
     /* Ajustes móvil */
@@ -161,7 +158,6 @@
       .link-btn { font-size: 12px; }
       h2 { font-size: 18px; }
     }
-
     @media (max-width: 360px) {
       .link-btn { font-size: 12px; }
       h2 { font-size: 14px; }
@@ -170,16 +166,16 @@
     /* 🔹 Imágenes flotantes dentro de section4 */
     .floating-icons {
       display: flex;
-      flex-direction: row; /* horizontal */
-      gap: 20px; /* espacio entre logos */
-      height: 100%; /* ocupar toda la altura de section4 */
-      justify-content: center; /* centrado horizontal */
-      align-items: center; /* centrado vertical */
+      flex-direction: row;       /* horizontal */
+      gap: 20px;                 /* espacio entre logos */
+      height: 100%;              /* ocupar toda la altura de section4 */
+      justify-content: center;   /* centrado horizontal */
+      align-items: center;       /* centrado vertical */
       padding-right: 10px;
     }
 
     .floating-icons img {
-      height: 30%; /* mismo estilo original */
+      height: 30%;   /* mismo estilo original */
       width: auto;
       object-fit: contain;
     }
@@ -191,20 +187,21 @@
       <img src="otrocompleto.png" alt="Overlay" class="overlay">
     </div>
     <div class="section2"></div>
+
     <div class="section3">
       <div class="left">
-        <h2>Colombia</h2>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informe-diario-goyurtvb/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informehb-acumuladocc/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/contables-hbvb/p%C3%A1gina-principal', '_blank')">Informes Contables</button>
-        <button class="link-btn" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiYjc0MTIzNzctYmRhOC00ZGY1LTlkYjItZDEwYmYyZDRjZjczIiwidCI6IjNiNzgxNjRmLWEzOTUtNGQwOC04NDY1LTYwNzJlYmNjM2M4NyIsImMiOjR9', '_blank')">Dash Domicilios</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/revenuecc/p%C3%A1gina-principal', '_blank')">Revenue</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/cxcvb/p%C3%A1gina-principal', '_blank')">Cuentas por Cobrar</button>
+        <h2>ColombiaGG</h2>
+        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/informe-diario-goyurtvb/p%C3%A1gina-principal" target="_blank">Ventas Diarias</a>
+        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/informehb-acumuladocc/p%C3%A1gina-principal" target="_blank">Ventas Acumuladas</a>
+        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/contables-hbvb/p%C3%A1gina-principal" target="_blank">Informes Contables</a>
+        <a class="link-btn" href="https://app.powerbi.com/view?r=eyJrIjoiYjc0MTIzNzctYmRhOC00ZGY1LTlkYjItZDEwYmYyZDRjZjczIiwidCI6IjNiNzgxNjRmLWEzOTUtNGQwOC04NDY1LTYwNzJlYmNjM2M4NyIsImMiOjR9" target="_blank">Dash Domicilios</a>
+        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/revenuecc/p%C3%A1gina-principal" target="_blank">Revenue</a>
+        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/cxcvb/p%C3%A1gina-principal" target="_blank">Cuentas por Cobrar</a>
       </div>
       <div class="right">
         <h2>República Dominicana</h2>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/diariordhbvb/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
-        <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/rddariovb/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
+        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/diariordhbvb/p%C3%A1gina-principal" target="_blank">Ventas Diarias</a>
+        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/rddariovb/p%C3%A1gina-principal" target="_blank">Ventas Acumuladas</a>
       </div>
     </div>
 
@@ -219,9 +216,5 @@
       </div>
     </div>
   </div>
-</body>
-</html>
-
-
 </body>
 </html>
