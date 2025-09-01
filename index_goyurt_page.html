@@ -29,19 +29,20 @@
       height: 100%;
       width: 100%;
     }
-    /* 🔹 Banner PC */
+    /* 🔹 Banner superior */
     .section1 {
-      flex: 0 0 14.74%;  /* fijo */
-      background: url("bannerp.jpg") no-repeat right center;
-      background-size: auto 100%;
-      position: relative;
+      flex: 0 0 auto;     /* altura dinámica */
+      height: auto;       /* se ajusta al contenido */
       display: flex;
       justify-content: center;
       align-items: center;
+      background: none;   /* quité el fondo que estiraba */
     }
     .section1 img.overlay {
-      max-height: 80%;
-      max-width: 80%;
+      width: auto;
+      height: auto;
+      max-height: 120px;  /* 🔹 controla la altura máxima */
+      max-width: 90%;
       object-fit: contain;
       pointer-events: none;
     }
@@ -152,10 +153,8 @@
         align-items: center;
       }
       .section1 img.overlay {
-        position: static;
-        margin: auto;
+        max-height: 80px; /* más pequeño en móvil */
         max-width: 90%;
-        max-height: 90%;
       }
       .left, .right {
         gap: 4px;
@@ -203,7 +202,7 @@
     <div class="section2"></div>
     <div class="section3">
       <div class="left">
-        <h2>Colombial</h2>
+        <h2>Colombiap</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informe-diario-goyurt/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informehb-acumulado/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/contables-hb/p%C3%A1gina-principal', '_blank')">Informes Contables</button>
@@ -227,5 +226,8 @@
       </div>
     </div>
   </div>
+</body>
+</html>
+
 </body>
 </html>
