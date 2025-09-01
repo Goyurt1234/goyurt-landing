@@ -12,77 +12,92 @@
       font-weight: normal;
       font-style: normal;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html, body {
       height: 100%;
       width: 100%;
       overflow: hidden;
       font-family: 'Bogart', Arial, sans-serif;
-      background-color: #fffae8;  /* 🔹 Fondo general */
     }
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
+
+    .container { 
+      display: flex; 
+      flex-direction: column; 
+      height: 100%; 
+      width: 100%; 
     }
-    /* 🔹 Banner superior */
+
+    /* 🔹 Banner PC */
     .section1 {
-      flex: 0 0 auto;     /* altura dinámica */
-      height: auto;       /* se ajusta al contenido */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #fffae8;  /* 🔹 fondo */
+      flex: 0 0 40.74%;
+      background: url("bannerp.jpg") no-repeat right center;
+      background-size: auto 100%;
+      position: relative;
     }
+
     .section1 img.overlay {
-      width: auto;
-      height: auto;
-      max-height: 180px;  /* 🔹 controla la altura máxima */
-      max-width: 90%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 60%; /* PC */
       object-fit: contain;
       pointer-events: none;
     }
 
+    /* 🔹 Banner móvil */
+    @media (max-width: 768px) {
+      .section1 {
+        background: url("bannercel.jpg") no-repeat right center;
+        background-size: auto 100%;
+      }
+      .section1 img.overlay {
+        top: 0;
+        left: 0;
+        right: auto;
+        height: 30%; /* móvil */
+      }
+    }
+
     /* Bloques principales */
     .section2 {
-      flex: 0 0 22.22%; /* fijo */
+      flex: 0 0 22.22%;
       background: url("video.gif") no-repeat center center;
       background-size: cover;
-      background-color: #fffae8; /* 🔹 fallback */
     }
+
     .section3 {
-      flex: 1; /* absorbe el sobrante dinámicamente */
       display: flex;
+      flex: 0 0 29.63%;
       overflow: hidden;
       min-height: 0;
-      background-color: #fffae8; /* 🔹 fondo */
     }
+
     .section4 {
       background-color: #fffae8;
-      flex: 0 0 7.41%;  /* fijo */
+      flex: 0 0 7.41%;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* izquierda y derecha */
       align-items: flex-end;
       padding-left: 10px;
       padding-bottom: 2px;
       position: relative;
     }
+
     /* Imagen del logo en section4 */
     .section4 img {
       height: 8vh;
       width: auto;
       display: block;
     }
+
     /* División de la sección 3 */
     .left, .right {
       flex: 1;
       min-height: 0;
     }
+
     .left {
       background-color: #bfd9d6;
       display: flex;
@@ -92,6 +107,7 @@
       padding: 10px;
       gap: 6px;
     }
+
     .right {
       background-color: #fff3b1;
       display: flex;
@@ -101,12 +117,10 @@
       padding: 10px;
       gap: 6px;
     }
-    .right .link-btn:first-of-type {
-      margin-top: auto;
-    }
-    .right .link-btn:last-of-type {
-      margin-bottom: auto;
-    }
+
+    /* centrado vertical solo en botones de RD */
+    .right .link-btn:first-of-type { margin-top: auto; }
+    .right .link-btn:last-of-type { margin-bottom: auto; }
 
     /* Título */
     h2 {
@@ -115,85 +129,59 @@
       text-align: center;
     }
 
-    /* Botones generales */
+    /* Botones */
     .link-btn {
       font-size: 15px;
       color: #692100;
-      background: #fffae8; /* 🔹 fondo de botones */
-      border: 2px solid #692100;
-      border-radius: 20px;
-      padding: 8px 14px;
+      text-decoration: none;
       cursor: pointer;
+      background: none;
+      border: none;
+      text-align: center;
       font-family: 'Bogart', Arial, sans-serif;
       width: 100%;
-      margin: 3px 0;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-      transition: all 0.2s ease;
+      margin: 1px 0;
     }
-    .link-btn:hover {
-      background: #ffe8c9;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 10px rgba(0,0,0,0.25);
-    }
+
+    .link-btn:hover { text-decoration: underline; }
 
     /* Pantallas grandes */
     @media (min-width: 768px) {
-      .row {
-        flex-wrap: nowrap;
-      }
+      .row { flex-wrap: nowrap; }
       .link-btn {
         width: auto;
         margin: 0;
       }
     }
 
-    /* 🔹 Ajustes SOLO móvil */
-    @media (max-width: 768px) {
-      .section1 {
-        background: none !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .section1 img.overlay {
-        max-height: 130px; /* más pequeño en móvil */
-        max-width: 90%;
-      }
-      .left, .right {
-        gap: 4px;
-      }
-      .link-btn {
-        font-size: 13px;
-        border-radius: 25px;
-      }
-      h2 {
-        font-size: 16px;
-      }
+    /* Ajustes móvil */
+    @media (max-width: 480px) {
+      .left { gap: 2.2px; }
+      .right { gap: 2.2px; }
+      .link-btn { font-size: 12px; }
+      h2 { font-size: 18px; }
     }
+
     @media (max-width: 360px) {
-      .link-btn {
-        font-size: 12px;
-      }
-      h2 {
-        font-size: 14px;
-      }
+      .link-btn { font-size: 12px; }
+      h2 { font-size: 14px; }
     }
 
     /* 🔹 Imágenes flotantes dentro de section4 */
     .floating-icons {
       display: flex;
-      flex-direction: row;
-      gap: 20px;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
+      flex-direction: row; /* horizontal */
+      gap: 20px; /* espacio entre logos */
+      height: 100%; /* ocupar toda la altura de section4 */
+      justify-content: center; /* centrado horizontal */
+      align-items: center; /* centrado vertical */
       padding-right: 10px;
     }
+
     .floating-icons img {
-      height: 30%;
+      height: 30%; /* mismo estilo original */
       width: auto;
       object-fit: contain;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -219,13 +207,15 @@
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/rddariovb/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
       </div>
     </div>
+
+    <!-- 🔹 Última sección con logos -->
     <div class="section4">
       <img src="logo.png" alt="Logo">
       <div class="floating-icons">
-        <img src="j1.jpg" alt="Icono 1" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
-        <img src="j2.jpg" alt="Icono 2" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
-        <img src="j3.jpg" alt="Icono 3" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
-        <img src="j4.jpg" alt="Icono 4" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
+        <a href="https://www.instagram.com/goyurtcolombia/" target="_blank"><img src="j1.jpg" alt="Instagram"></a>
+        <a href="https://api.whatsapp.com/send?phone=573227422689" target="_blank"><img src="j2.jpg" alt="WhatsApp"></a>
+        <a href="https://co.linkedin.com/company/goyurt" target="_blank"><img src="j3.jpg" alt="LinkedIn"></a>
+        <a href="https://www.facebook.com/GoyurtColombia" target="_blank"><img src="j4.jpg" alt="Facebook"></a>
       </div>
     </div>
   </div>
