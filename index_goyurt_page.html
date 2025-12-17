@@ -12,13 +12,11 @@
       font-weight: normal;
       font-style: normal;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
       height: 100%;
       width: 100%;
@@ -26,203 +24,191 @@
       font-family: 'Bogart', Arial, sans-serif;
       background-color: #fffae8;
     }
-
     .container {
       display: flex;
       flex-direction: column;
       height: 100%;
       width: 100%;
     }
-
-    /* 🔹 SECCIÓN 1: Logo Superior (Ahora proporcional) */
+    /* 🔹 Banner superior - AJUSTADO PARA SER FLEXIBLE */
     .section1 {
-      flex: 0 0 15%; /* Ocupa el 15% de la altura de la pantalla */
+      flex: 0 0 12%; 
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       background-color: #fffae8;
-      padding: 10px;
+      padding: 5px; /* Pequeño respiro */
     }
-
     .section1 img.overlay {
-      max-height: 100%; /* No puede ser más alta que su contenedor */
-      max-width: 90%;   /* No puede ser más ancha que su contenedor */
-      height: auto;
       width: auto;
+      height: auto;
+      max-height: 100%; /* IMPORTANTE: Ahora no se pasará del contenedor */
+      max-width: 90%;
       object-fit: contain;
       pointer-events: none;
     }
 
-    /* 🔹 SECCIÓN 2: Banner Kiwis (Adaptable) */
+    /* Bloques principales (Mantenemos tus medidas originales) */
     .section2 {
-      flex: 0 0 20%; /* Reducido un poco para dar aire a lo demás */
+      flex: 0 0 22.22%; 
       background: url("video.gif") no-repeat center center;
       background-size: cover;
-      background-color: #fffae8;
+      background-color: #fffae8; 
     }
-
-    /* 🔹 SECCIÓN 3: Contenido Central */
     .section3 {
-      flex: 1; /* Absorbe el resto del espacio disponible */
+      flex: 1; 
       display: flex;
       overflow: hidden;
       min-height: 0;
+      background-color: #fffae8; 
     }
-
+    .section4 {
+      background-color: #fffae8;
+      flex: 0 0 7.41%;  
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-left: 10px;
+      padding-bottom: 2px;
+      position: relative;
+    }
+    .section4 img {
+      height: 8vh;
+      width: auto;
+      display: block;
+    }
     .left, .right {
       flex: 1;
+      min-height: 0;
+    }
+    .left {
+      background-color: #bfd9d6;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 20px 10px;
-      gap: 10px;
-      overflow-y: auto; /* Permite scroll interno si la pantalla es muy pequeña */
+      padding: 10px;
+      gap: 6px;
+    }
+    .right {
+      background-color: #fff3b1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px;
+      gap: 6px;
+    }
+    .right .link-btn:first-of-type {
+      margin-top: auto;
+    }
+    .right .link-btn:last-of-type {
+      margin-bottom: auto;
     }
 
-    .left { background-color: #bfd9d6; }
-    .right { background-color: #fff3b1; }
-
-    /* Títulos */
     h2 {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       color: #692100;
       text-align: center;
-      font-size: 1.5rem;
     }
 
-    /* Botones */
     .link-btn {
       font-size: 15px;
       color: #692100;
-      background: #fffae8;
+      background: #fffae8; 
       border: 2px solid #692100;
       border-radius: 20px;
-      padding: 10px 20px;
+      padding: 8px 14px;
       cursor: pointer;
       font-family: 'Bogart', Arial, sans-serif;
-      width: 250px; /* Ancho fijo para consistencia */
-      max-width: 90%;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      width: 100%;
+      margin: 3px 0;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
       transition: all 0.2s ease;
-      text-align: center;
     }
-
     .link-btn:hover {
       background: #ffe8c9;
       transform: translateY(-2px);
-      box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.25);
     }
 
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      width: 100%;
+    @media (min-width: 768px) {
+      .link-btn {
+        width: auto;
+        margin: 0;
+      }
     }
 
-    .btn-group .link-btn {
-      width: auto; /* Los que van en pareja se ajustan a su texto */
-      min-width: 120px;
-    }
-
-    /* 🔹 SECCIÓN 4: Footer */
-    .section4 {
-      flex: 0 0 8%;
-      background-color: #fffae8;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .section4 .logo-footer {
-      height: 70%;
-      width: auto;
+    @media (max-width: 768px) {
+      .section1 img.overlay {
+        max-height: 80%; /* Más pequeño en móviles para que no sature */
+      }
+      .left, .right {
+        gap: 1px;
+      }
+      .link-btn {
+        font-size: 13px;
+        border-radius: 12px;
+      }
+      h2 {
+        font-size: 16px;
+      }
     }
 
     .floating-icons {
       display: flex;
-      gap: 15px;
+      flex-direction: row;
+      gap: 20px;
       height: 100%;
+      justify-content: center;
       align-items: center;
+      padding-right: 10px;
     }
-
     .floating-icons img {
-      height: 25px;
+      height: 30%;
       width: auto;
+      object-fit: contain;
       cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .floating-icons img:hover {
-      transform: scale(1.1);
-    }
-
-    /* 🔹 AJUSTES RESPONSIVOS */
-    @media (max-height: 700px) {
-      h2 { font-size: 1.1rem; margin-bottom: 5px; }
-      .link-btn { padding: 6px 12px; font-size: 13px; }
-      .left, .right { gap: 6px; padding: 10px; }
-    }
-
-    @media (max-width: 768px) {
-      .section3 { flex-direction: column; overflow-y: auto; }
-      .section2 { flex: 0 0 15%; }
-      .left, .right { flex: none; width: 100%; }
-      .section4 { flex-direction: column; height: auto; padding: 10px; gap: 10px; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <div class="section1">
-      <img src="otrocompleto.png" alt="Goyurt Logo" class="overlay">
+      <img src="otrocompleto.png" alt="Overlay" class="overlay">
     </div>
-
     <div class="section2"></div>
-
     <div class="section3">
       <div class="left">
         <h2>Colombia</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informe-diario-goyurtvb/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
-
-        <div class="btn-group">
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
           <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/informehb-acumuladocc/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
           <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/acumfr/p%C3%A1gina-principal', '_blank')">Acumulado FR</button>
         </div>
-
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/contables-hbvb/p%C3%A1gina-principal', '_blank')">Informes Contables</button>
         <button class="link-btn" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiNjY2YTA2NWMtZjA3MC00ZWEwLWI5OTktYjFlYWNhZjg5NWQ5IiwidCI6IjNiNzgxNjRmLWEzOTUtNGQwOC04NDY1LTYwNzJlYmNjM2M4NyIsImMiOjR9', '_blank')">Dash Domicilios</button>
-        
-        <div class="btn-group">
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
           <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/revenuecc/p%C3%A1gina-principal', '_blank')">Revenue</button>
           <button class="link-btn" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiYzU3OTAxZjYtODU2My00ZWYzLTkyMmEtNTA3MzZkZDIxNDAyIiwidCI6IjNiNzgxNjRmLWEzOTUtNGQwOC04NDY1LTYwNzJlYmNjM2M4NyIsImMiOjR9', '_blank')">Inventory Stock</button>
         </div>
-
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/cxcvb/p%C3%A1gina-principal', '_blank')">Cuentas por Cobrar</button>
       </div>
-
       <div class="right">
         <h2>República Dominicana</h2>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/diariordhbvb/p%C3%A1gina-principal', '_blank')">Ventas Diarias</button>
         <button class="link-btn" onclick="window.open('https://sites.google.com/goyurt.com.co/rddariovb/p%C3%A1gina-principal', '_blank')">Ventas Acumuladas</button>
       </div>
     </div>
-
     <div class="section4">
-      <img src="logo.png" alt="Logo" class="logo-footer">
+      <img src="logo.png" alt="Logo">
       <div class="floating-icons">
-        <img src="j1.jpg" alt="Instagram" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
-        <img src="j2.jpg" alt="WhatsApp" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
-        <img src="j3.jpg" alt="LinkedIn" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
-        <img src="j4.jpg" alt="Facebook" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
+        <img src="j1.jpg" alt="Icono 1" onclick="window.open('https://www.instagram.com/goyurtcolombia/', '_blank')">
+        <img src="j2.jpg" alt="Icono 2" onclick="window.open('https://api.whatsapp.com/send?phone=573227422689', '_blank')">
+        <img src="j3.jpg" alt="Icono 3" onclick="window.open('https://co.linkedin.com/company/goyurt', '_blank')">
+        <img src="j4.jpg" alt="Icono 4" onclick="window.open('https://www.facebook.com/GoyurtColombia', '_blank')">
       </div>
     </div>
   </div>
-
 </body>
 </html>
