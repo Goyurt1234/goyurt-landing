@@ -30,25 +30,30 @@
       height: 100%;
       width: 100%;
     }
-    /* 🔹 Banner superior - AJUSTADO PARA SER FLEXIBLE */
+
+    /* 🔹 CAMBIO AQUÍ: Section 1 ahora es flexible y no fija */
     .section1 {
-      flex: 0 0 12%; 
+      flex: 0 1 auto;      /* Permite que se encoja si es necesario */
+      min-height: 50px;    /* Altura mínima para que no desaparezca */
+      max-height: 15vh;    /* Altura máxima basada en el alto de pantalla */
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #fffae8;
-      padding: 5px; /* Pequeño respiro */
+      padding: 10px 0;     /* Espacio interno arriba y abajo */
     }
+
+    /* 🔹 CAMBIO AQUÍ: La imagen ahora manda sobre el contenedor */
     .section1 img.overlay {
-      width: auto;
       height: auto;
-      max-height: 100%; /* IMPORTANTE: Ahora no se pasará del contenedor */
-      max-width: 90%;
+      width: auto;
+      max-height: 120px;   /* Tamaño máximo en pantallas grandes */
+      max-width: 80%;
       object-fit: contain;
       pointer-events: none;
     }
 
-    /* Bloques principales (Mantenemos tus medidas originales) */
+    /* El resto de tu código se mantiene exactamente igual */
     .section2 {
       flex: 0 0 22.22%; 
       background: url("video.gif") no-repeat center center;
@@ -141,7 +146,7 @@
 
     @media (max-width: 768px) {
       .section1 img.overlay {
-        max-height: 80%; /* Más pequeño en móviles para que no sature */
+        max-height: 80px; /* Tamaño reducido para móvil */
       }
       .left, .right {
         gap: 1px;
